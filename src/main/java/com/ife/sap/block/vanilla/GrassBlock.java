@@ -1,50 +1,20 @@
 package com.ife.sap.block.vanilla;
 
-import com.ife.sap.procedures.SandTCDustProcedure;
+import com.ife.sap.procedures.GrassBlockTCDirtProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.phys.HitResult;
 
-import java.util.Collections;
-import java.util.List;
-
-public class GrassBlock extends Block {
+public class GrassBlock extends net.minecraft.world.level.block.GrassBlock {
 
     public GrassBlock() {
-        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).sound(SoundType.GRASS)
-                .strength(0.5f, 0.5f).randomTicks());
+        super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).randomTicks());
     }
-
-    @Override
-    public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return 15;
-    }
-
-    @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-        return new ItemStack(Blocks.GRASS_BLOCK);
-    }
-
-    @Override
-    public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
-        List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-        if (!dropsOriginal.isEmpty())
-            return dropsOriginal;
-        return Collections.singletonList(new ItemStack(Blocks.GRASS_BLOCK));
-    }
-
 
     @Override
     public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
@@ -53,7 +23,7 @@ public class GrassBlock extends Block {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        SandTCDustProcedure.execute(level, x, y, z);
+        GrassBlockTCDirtProcedure.execute(level, x, y, z);
     }
 
 }
