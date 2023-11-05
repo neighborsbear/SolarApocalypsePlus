@@ -26,7 +26,7 @@ import com.ife.sap.init.SapModBlocks;
 public class CrushedDirtBlock extends FallingBlock {
 	public CrushedDirtBlock() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL)
-				.strength(0.6f, 0.6f).speedFactor(0.95f).jumpFactor(0.95f).randomTicks());
+				.strength(1.2f, 0.6f).speedFactor(0.95f).jumpFactor(0.95f).randomTicks());
 	}
 
 	@Override
