@@ -25,7 +25,8 @@ import com.ife.sap.init.SapModBlocks;
 
 public class CrushedDirtBlock extends FallingBlock {
 	public CrushedDirtBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL).strength(1.2f, 0.6f).speedFactor(0.95f).jumpFactor(0.95f));
+		super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL)
+				.strength(1.2f, 0.6f).speedFactor(0.95f).jumpFactor(0.95f).randomTicks());
 	}
 
 	@Override
@@ -42,11 +43,12 @@ public class CrushedDirtBlock extends FallingBlock {
 	}
 
 	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
-		super.tick(blockstate, world, pos, random);
+	public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
+		super.randomTick(blockstate, level, pos, random);
+		Player entity = Minecraft.getInstance().player;
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		CrushedDirtTCSandProcedure.execute(world, x, y, z);
+		CrushedDirtTCSandProcedure.execute(level, x, y, z);
 	}
 }
