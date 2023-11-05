@@ -18,7 +18,8 @@ import java.util.Collections;
 
 public class DustBlock extends FallingBlock {
     public DustBlock() {
-        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.SAND).sound(SoundType.SAND).strength(0.8f, 0.4f).speedFactor(0.6f).jumpFactor(0.6f));
+        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.SAND).sound(SoundType.SAND)
+                .strength(0.4f, 0.4f).speedFactor(0.8f).jumpFactor(0.9f).randomTicks());
     }
 
     @Override
