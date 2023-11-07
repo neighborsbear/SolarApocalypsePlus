@@ -1,7 +1,6 @@
 package com.ife.sap.block.vanilla;
 
 import com.ife.sap.procedures.DirtTCCoarseDirtProcedure;
-import com.ife.sap.procedures.SandTCDustProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

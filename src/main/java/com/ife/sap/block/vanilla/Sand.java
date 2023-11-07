@@ -1,5 +1,6 @@
 package com.ife.sap.block.vanilla;
 
+import com.ife.sap.procedures.SandTCDustProcedure;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -9,7 +10,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
-import com.ife.sap.procedures.SandTCDustProcedure;
 
 public class Sand extends FallingBlock {
 
