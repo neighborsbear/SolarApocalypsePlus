@@ -1,6 +1,11 @@
 package com.ife.sap.block;
 
 import com.ife.sap.init.SapModBlocks;
+import com.ife.sap.procedures.DustLostProcedure;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -38,5 +43,15 @@ public class DustBlock extends FallingBlock {
         if (!dropsOriginal.isEmpty())
             return dropsOriginal;
         return Collections.singletonList(new ItemStack(SapModBlocks.DUST.get()));
+    }
+
+    @Override
+    public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
+        super.randomTick(blockstate, level, pos, random);
+        Player entity = Minecraft.getInstance().player;
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        DustLostProcedure.execute(level, x, y, z);
     }
 }

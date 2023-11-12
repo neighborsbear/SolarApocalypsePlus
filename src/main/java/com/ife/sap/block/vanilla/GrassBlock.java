@@ -12,6 +12,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.level.BlockGetter;
 
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -22,6 +25,11 @@ public class GrassBlock extends net.minecraft.world.level.block.GrassBlock {
 
     public GrassBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).randomTicks());
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
+        return new ItemStack(Blocks.GRASS_BLOCK);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -37,7 +45,6 @@ public class GrassBlock extends net.minecraft.world.level.block.GrassBlock {
             return GrassColor.get(0.5D, 1.0D);
         }, VanillaBlocks.GRASS_BLOCK.get());
     }
-
 
         @Override
     public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
