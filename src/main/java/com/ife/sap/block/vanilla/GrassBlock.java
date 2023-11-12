@@ -27,25 +27,6 @@ public class GrassBlock extends net.minecraft.world.level.block.GrassBlock {
         super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).randomTicks());
     }
 
-    @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-        return new ItemStack(Blocks.GRASS_BLOCK);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public static void blockColorLoad(RegisterColorHandlersEvent.Block event) {
-        event.getBlockColors().register((bs, world, pos, index) -> {
-            return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D);
-        }, VanillaBlocks.GRASS_BLOCK.get());
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public static void itemColorLoad(RegisterColorHandlersEvent.Item event) {
-        event.getItemColors().register((stack, index) -> {
-            return GrassColor.get(0.5D, 1.0D);
-        }, VanillaBlocks.GRASS_BLOCK.get());
-    }
-
         @Override
     public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(blockstate, level, pos, random);
