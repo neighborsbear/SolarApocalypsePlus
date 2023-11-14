@@ -21,6 +21,7 @@ public class SapModTabs {
 		if (tabData.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
 			tabData.accept(SapModBlocks.CRUSHED_DIRT.get().asItem());
 			tabData.accept(SapModBlocks.DUST.get().asItem());
+			tabData.accept(SapModBlocks.WITHERED_LEAVES.get().asItem());
 		}
 	}
 }

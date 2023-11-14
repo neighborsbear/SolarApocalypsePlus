@@ -18,7 +18,7 @@ public class CoarseDirtTCCrushedDirtBlockProcedure {
                 && SapModVariables.MapVariables.get(world).SolarFlare == 1
                 && !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
                 && world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) && world.dayTime() >= 24000
-                && !world.getLevelData().isRaining() && Mth.nextInt(RandomSource.create(), 1, 10) == 1) {
+                && !world.getLevelData().isRaining() && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
             world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.CRUSHED_DIRT.get().defaultBlockState(), 3);
         }

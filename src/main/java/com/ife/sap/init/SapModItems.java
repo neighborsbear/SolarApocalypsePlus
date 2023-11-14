@@ -14,6 +14,8 @@ public class SapModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, SapMod.MODID);
 	public static final RegistryObject<Item> CRUSHED_DIRT = block(SapModBlocks.CRUSHED_DIRT);
 	public static final RegistryObject<Item> DUST = block(SapModBlocks.DUST);
+	public static final RegistryObject<Item> WITHERED_LEAVES = block(SapModBlocks.WITHERED_LEAVES);
+
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
