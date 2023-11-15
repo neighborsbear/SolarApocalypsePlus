@@ -17,7 +17,7 @@ import java.util.Collections;
 
 public class WitheredLeavesBlock extends LeavesBlock {
 	public WitheredLeavesBlock() {
-		super(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(0.1f).noCollission().speedFactor(0.25f).jumpFactor(0.85f).noOcclusion());
+		super(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(0.1f).noCollission().speedFactor(0.25f).jumpFactor(0.9f).noOcclusion());
 	}
 
 	@Override
