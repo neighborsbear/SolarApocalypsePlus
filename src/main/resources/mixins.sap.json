@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.ife.sap.mixin",
+	"minVersion": "0.0.0",
+	"compatibilityLevel": "JAVA_17",
+	"client": [],
+	"mixins": [
+		"LeaveBlocksMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

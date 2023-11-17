@@ -10,3 +10,5 @@ gen
 build
 run
 run-data
+bin
+.eclipse
