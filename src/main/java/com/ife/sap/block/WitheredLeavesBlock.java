@@ -1,6 +1,11 @@
 
 package com.ife.sap.block;
 
+import com.ife.sap.procedures.WitheredLeavesBlockFProcedure;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +22,8 @@ import java.util.Collections;
 
 public class WitheredLeavesBlock extends LeavesBlock {
 	public WitheredLeavesBlock() {
-		super(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(0.1f).noCollission().speedFactor(0.25f).jumpFactor(0.9f).noOcclusion());
+		super(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.PLANT).sound(SoundType.GRASS)
+				.strength(0.1f).noCollission().speedFactor(0.25f).jumpFactor(0.9f).randomTicks());
 	}
 
 	@Override
@@ -36,5 +42,15 @@ public class WitheredLeavesBlock extends LeavesBlock {
 		if (!dropsOriginal.isEmpty())
 			return dropsOriginal;
 		return Collections.singletonList(new ItemStack(this, 1));
+	}
+
+	@Override
+	public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
+		super.randomTick(blockstate, level, pos, random);
+		Player entity = Minecraft.getInstance().player;
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
+		WitheredLeavesBlockFProcedure.execute(level, x, y, z);
 	}
 }

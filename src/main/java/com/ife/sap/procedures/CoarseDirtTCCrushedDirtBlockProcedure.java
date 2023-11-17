@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 public class CoarseDirtTCCrushedDirtBlockProcedure {
     public static void execute(LevelAccessor world, double x, double y, double z) {
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-                && SapModVariables.MapVariables.get(world).SolarFlare == 1
+                && SapModVariables.MapVariables.get(world).SolarFlare >= 1
                 && !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
                 && world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) && world.dayTime() >= 24000
                 && !world.getLevelData().isRaining() && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
