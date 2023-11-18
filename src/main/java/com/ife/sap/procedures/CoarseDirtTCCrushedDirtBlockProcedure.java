@@ -1,6 +1,5 @@
 package com.ife.sap.procedures;
 
-import com.ife.sap.SapMod;
 import com.ife.sap.init.SapModBlocks;
 import com.ife.sap.network.SapModVariables;
 import net.minecraft.core.BlockPos;

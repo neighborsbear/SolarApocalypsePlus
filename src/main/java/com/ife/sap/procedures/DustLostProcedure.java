@@ -18,7 +18,6 @@ public class DustLostProcedure {
                 && world.dayTime() >= 144000
                 && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
         }
     }
 
