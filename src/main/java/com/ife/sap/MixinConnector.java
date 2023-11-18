@@ -7,7 +7,8 @@ public class MixinConnector implements IMixinConnector {
 
     @Override
     public void connect() {
-        Mixins.addConfiguration("mixin.sap.json");
+        Mixins.addConfiguration("mixins.sap.json");
     }
+
 
 }
