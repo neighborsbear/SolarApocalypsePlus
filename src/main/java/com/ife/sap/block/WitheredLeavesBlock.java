@@ -35,12 +35,12 @@ public class WitheredLeavesBlock extends LeavesBlock {
 
 	@Override
 	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-		return 40;
+		return 60;
 	}
 
 	@Override
 	public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-		return 5;
+		return 30;
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import com.ife.sap.init.SapModBlocks;
 public class DustLostProcedure {
     public static void execute(LevelAccessor world, double x, double y, double z) {
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-                && SapModVariables.MapVariables.get(world).SolarFlare >= 2
+                && SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6
                 && world.dayTime() >= 144000
                 && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);

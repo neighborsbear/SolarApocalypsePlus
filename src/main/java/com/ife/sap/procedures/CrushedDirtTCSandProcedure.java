@@ -14,9 +14,31 @@ import net.minecraft.core.BlockPos;
 public class CrushedDirtTCSandProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare >= 1
-				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) && world.dayTime() >= 48000
-				&& !world.getLevelData().isRaining() && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 1
+				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
+				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
+				&& world.dayTime() >= 48000
+				&& !world.getLevelData().isRaining()
+				&& Mth.nextDouble(RandomSource.create(), 0, 15) <= world.dayTime() / 24000 + 1) {
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
+		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 2
+				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
+				&& world.dayTime() >= 192000
+				&& Mth.nextDouble(RandomSource.create(), 0, 15) <= (world.dayTime() / 24000) / 2 + 5) {
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
+		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 3
+				&& world.dayTime() >= 360000
+				&& y >= 63) {
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
+		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+				&& SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+				&& world.dayTime() >= 504000
+				&& y >= 8) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
 		}
