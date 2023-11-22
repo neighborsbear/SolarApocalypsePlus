@@ -19,6 +19,11 @@ public class DustLostProcedure {
                 && Mth.nextInt(RandomSource.create(), 1, 15) == 1) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
         }
+        if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+                && SapModVariables.MapVariables.get(world).SolarFlare == 5
+                && y >= 8) {
+            world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+        }
     }
 
 }

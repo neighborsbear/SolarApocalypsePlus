@@ -13,7 +13,7 @@ import com.ife.sap.network.SapModVariables;
 
 public class GrassBlockTCDirtProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		if (SapModVariables.MapVariables.get(world).SolarFlare == 1) {
+		if (SapModVariables.MapVariables.get(world).SolarFlare == 1 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450) //해가 떠있을때
 					&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) //블럭이 하늘이 보일때
@@ -23,7 +23,8 @@ public class GrassBlockTCDirtProcedure {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.DIRT.defaultBlockState(), 3);
 			}
-		} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
+		}
+		if (SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
@@ -31,15 +32,22 @@ public class GrassBlockTCDirtProcedure {
 			}
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare == 3) {
-			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld"))) && y >= 63) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+					&& y >= 63) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.DIRT.defaultBlockState(), 3);
 			}
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
-			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld"))) && y >= 8) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+					&& y >= 8) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.DIRT.defaultBlockState(), 3);
 			}
+		}
+		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
+				&& y >= 8) {
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 		}
 	}
 }

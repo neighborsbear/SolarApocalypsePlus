@@ -1,6 +1,7 @@
 package com.ife.sap.init;
 
 import com.ife.sap.block.vanilla.dirtgroup.*;
+import com.ife.sap.block.vanilla.icegroup.*;
 import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,6 +22,15 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> COARSE_DIRT = REGISTRY.register("coarse_dirt", () -> new CoarseDirt());
     public static final RegistryObject<Block> SAND = REGISTRY.register("sand", () -> new Sand());
     public static final RegistryObject<Block> RED_SAND = REGISTRY.register("red_sand", () -> new RedSand());
+    //ICE
+    public static final RegistryObject<Block> ICE = REGISTRY.register("ice", () -> new Ice());
+    public static final RegistryObject<Block> FROSTED_ICE = REGISTRY.register("frosted_ice", () -> new FrostedIce());
+    public static final RegistryObject<Block> PACKED_ICE = REGISTRY.register("packed_ice", () -> new PackedIce());
+    public static final RegistryObject<Block> BLUE_ICE = REGISTRY.register("blue_ice", () -> new BlueIce());
+    public static final RegistryObject<Block> SNOW = REGISTRY.register("snow", () -> new Snow());
+    public static final RegistryObject<Block> SNOW_BLOCK = REGISTRY.register("snow_block", () -> new SnowBlock());
+    public static final RegistryObject<Block> POWDER_SNOW = REGISTRY.register("powder_snow", () -> new PowderSnow());
+    public static final RegistryObject<Block> WATER = REGISTRY.register("water", () -> new Water());
     //LEAVES
     public static final RegistryObject<Block> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new AcaciaLeaves());
     public static final RegistryObject<Block> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new AzaleaLeaves());

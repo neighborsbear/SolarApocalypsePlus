@@ -14,7 +14,7 @@ import net.minecraft.core.BlockPos;
 public class CrushedDirtTCSandProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare == 1
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 1 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
 				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
 				&& world.dayTime() >= 48000
@@ -22,7 +22,8 @@ public class CrushedDirtTCSandProcedure {
 				&& Mth.nextDouble(RandomSource.create(), 0, 15) <= world.dayTime() / 24000 + 1) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
-		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+		}
+		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 2
 				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
 				&& world.dayTime() >= 192000
@@ -41,6 +42,11 @@ public class CrushedDirtTCSandProcedure {
 				&& y >= 8) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
+		}
+		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
+				&& y >= 8) {
+			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 		}
 	}
 }
