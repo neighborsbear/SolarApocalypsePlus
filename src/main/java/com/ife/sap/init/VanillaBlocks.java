@@ -4,9 +4,17 @@ import com.ife.sap.block.vanilla.dirtgroup.*;
 import com.ife.sap.block.vanilla.icegroup.*;
 import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import static net.minecraft.world.level.block.Blocks.register;
 
 public class VanillaBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
@@ -30,7 +38,9 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> SNOW = REGISTRY.register("snow", () -> new Snow());
     public static final RegistryObject<Block> SNOW_BLOCK = REGISTRY.register("snow_block", () -> new SnowBlock());
     public static final RegistryObject<Block> POWDER_SNOW = REGISTRY.register("powder_snow", () -> new PowderSnow());
+    //public static final Block WATER = register("water", () -> new Water(Fluids.WATER, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
     public static final RegistryObject<Block> WATER = REGISTRY.register("water", () -> new Water());
+
     //LEAVES
     public static final RegistryObject<Block> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new AcaciaLeaves());
     public static final RegistryObject<Block> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new AzaleaLeaves());

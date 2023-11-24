@@ -29,7 +29,7 @@ public class VanillaItems {
     public static final RegistryObject<Item> SNOW = REGISTRY.register("snow", () -> new BlockItem(VanillaBlocks.SNOW.get(), new Item.Properties()));
     public static final RegistryObject<Item> SNOW_BLOCK = REGISTRY.register("snow_block", () -> new BlockItem(VanillaBlocks.SNOW_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> POWDER_SNOW = REGISTRY.register("powder_snow", () -> new BlockItem(VanillaBlocks.POWDER_SNOW.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WATER = REGISTRY.register("water", () -> new BlockItem(VanillaBlocks.WATER.get(), new Item.Properties()));
+    //public static final RegistryObject<Item> WATER = REGISTRY.register("water", () -> new BlockItem(VanillaBlocks.WATER, new Item.Properties()));
     //LEAVES
     public static final RegistryObject<Item> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new BlockItem(VanillaBlocks.ACACIA_LEAVES.get(), new Item.Properties()));
     public static final RegistryObject<Item> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new BlockItem(VanillaBlocks.AZALEA_LEAVES.get(), new Item.Properties()));

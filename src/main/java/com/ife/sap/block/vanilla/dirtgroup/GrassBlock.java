@@ -17,7 +17,7 @@ public class GrassBlock extends net.minecraft.world.level.block.GrassBlock {
         super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).randomTicks());
     }
 
-        @Override
+    @Override
     public void randomTick(BlockState blockstate, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(blockstate, level, pos, random);
         Player entity = Minecraft.getInstance().player;

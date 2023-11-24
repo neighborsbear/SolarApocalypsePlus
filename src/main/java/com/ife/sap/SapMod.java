@@ -43,6 +43,8 @@ public class SapMod {
 
         VanillaItems.REGISTRY.register(bus);
 
+        VanillaFluids.FLUIDS.register(bus);
+
         SapModBlocks.REGISTRY.register(bus);
 
         SapModItems.REGISTRY.register(bus);
