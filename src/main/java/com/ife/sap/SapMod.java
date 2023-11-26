@@ -49,6 +49,8 @@ public class SapMod {
 
         SapModItems.REGISTRY.register(bus);
 
+        SapModMobEffects.REGISTRY.register(bus);
+
         SapModTabs.REGISTRY.register(bus);
 
     }
