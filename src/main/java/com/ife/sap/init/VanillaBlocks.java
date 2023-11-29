@@ -2,19 +2,16 @@ package com.ife.sap.init;
 
 import com.ife.sap.block.vanilla.dirtgroup.*;
 import com.ife.sap.block.vanilla.icegroup.*;
+import com.ife.sap.block.vanilla.plantgroup.bushgroup.*;
 import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
+import com.ife.sap.block.vanilla.plantgroup.saplinggroup.*;
+import com.ife.sap.block.vanilla.plantgroup.underwatergroup.*;
+import com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.block.grower.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import static net.minecraft.world.level.block.Blocks.register;
 
 public class VanillaBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
@@ -40,7 +37,8 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> POWDER_SNOW = REGISTRY.register("powder_snow", () -> new PowderSnow());
     //public static final Block WATER = register("water", () -> new Water(Fluids.WATER, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
     public static final RegistryObject<Block> WATER = REGISTRY.register("water", () -> new Water());
-
+    public static final RegistryObject<Block> FLOWING_WATER = REGISTRY.register("flowing_water", () -> new FlowingWater());
+    public static final RegistryObject<Block> BUBBLE_COLUMN = REGISTRY.register("bubble_column", () -> new BubbleColumn());
     //LEAVES
     public static final RegistryObject<Block> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new AcaciaLeaves());
     public static final RegistryObject<Block> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new AzaleaLeaves());
@@ -52,4 +50,37 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> MANGROVE_LEAVES = REGISTRY.register("mangrove_leaves", () -> new MangroveLeaves());
     public static final RegistryObject<Block> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new OakLeaves());
     public static final RegistryObject<Block> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new SpruceLeaves());
+    //SAPLING
+    public static final RegistryObject<Block> ACACIA_SAPLING = REGISTRY.register("acacia_sapling", () -> new AcaciaSapling(new AcaciaTreeGrower()));
+    public static final RegistryObject<Block> BIRCH_SAPLING = REGISTRY.register("birch_sapling", () -> new BirchSapling(new BirchTreeGrower()));
+    public static final RegistryObject<Block> CHERRY_SAPLING = REGISTRY.register("cherry_sapling", () -> new CherrySapling(new CherryTreeGrower()));
+    public static final RegistryObject<Block> DARK_OAK_SAPLING = REGISTRY.register("dark_oak_sapling", () -> new DarkOakSapling(new DarkOakTreeGrower()));
+    public static final RegistryObject<Block> JUNGLE_SAPLING = REGISTRY.register("jungle_sapling", () -> new JungleSapling(new JungleTreeGrower()));
+    public static final RegistryObject<Block> MANGROVE_SAPLING = REGISTRY.register("mangrove_propagule", () -> new MangrovePropagule());
+    public static final RegistryObject<Block> OAK_SAPLING = REGISTRY.register("oak_sapling", () -> new OakSapling(new OakTreeGrower()));
+    public static final RegistryObject<Block> SPRUCE_SAPLING = REGISTRY.register("spruce_sapling", () -> new SpruceSapling(new SpruceTreeGrower()));
+    public static final RegistryObject<Block> AZALEA = REGISTRY.register("azalea", () -> new Azalea());
+    public static final RegistryObject<Block> FLOWERING_AZALEA = REGISTRY.register("flowering_azalea", () -> new FloweringAzalea());
+    public static final RegistryObject<Block> BAMBOO_SAPLING = REGISTRY.register("bamboo_sapling", () -> new BambooSapling());
+    //BUSHGROUP
+    public static final RegistryObject<Block> DEAD_BUSH = REGISTRY.register("dead_bush", () -> new DeadBush());
+    public static final RegistryObject<Block> BROWN_MUSHROOM = REGISTRY.register("brown_mushroom", () -> new BrownMushroom());
+    public static final RegistryObject<Block> RED_MUSHROOM = REGISTRY.register("red_mushroom", () -> new RedMushroom());
+    public static final RegistryObject<Block> Grass = REGISTRY.register("grass", () -> new Grass());
+    public static final RegistryObject<Block> TALL_Grass = REGISTRY.register("tall_grass", () -> new TallGrass());
+    public static final RegistryObject<Block> FERN = REGISTRY.register("fern", () -> new Fern());
+    public static final RegistryObject<Block> LARGE_FERN = REGISTRY.register("large_fern", () -> new LargeFern());
+    public static final RegistryObject<Block> SUGAR_CANE = REGISTRY.register("sugar_cane", () -> new SugarCane());
+    //UNDERWATER
+    public static final RegistryObject<Block> SEAGRASS = REGISTRY.register("seagrass", () -> new Seagrass());
+    public static final RegistryObject<Block> TALL_SEAGRASS = REGISTRY.register("tall_seagrass", () -> new TallSeagrass());
+    public static final RegistryObject<Block> SEA_PICKLE = REGISTRY.register("sea_pickle", () -> new SeaPickle());
+    public static final RegistryObject<Block> KELP = REGISTRY.register("kelp", () -> new Kelp());
+    public static final RegistryObject<Block> KELP_PLANT = REGISTRY.register("kelp_plant", () -> new KelpPlant());
+    //CORAL
+    public static final RegistryObject<Block> BRAIN_CORAL = REGISTRY.register("brain_coral", () -> new BrainCoral());
+    public static final RegistryObject<Block> BUBBLE_CORAL = REGISTRY.register("bubble_coral", () -> new BubbleCoral());
+    public static final RegistryObject<Block> FIRE_CORAL = REGISTRY.register("fire_coral", () -> new FireCoral());
+    public static final RegistryObject<Block> HORN_CORAL = REGISTRY.register("horn_coral", () -> new HornCoral());
+    public static final RegistryObject<Block> TUBE_CORAL = REGISTRY.register("tube_coral", () -> new TubeCoral());
 }
