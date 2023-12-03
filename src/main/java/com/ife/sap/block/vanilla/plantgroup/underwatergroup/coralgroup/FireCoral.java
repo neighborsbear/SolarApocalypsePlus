@@ -18,11 +18,6 @@ public class FireCoral extends CoralPlantBlock {
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState state) {
-        return true;
-    }
-
-    @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(state, level, pos, random);
         Player entity = Minecraft.getInstance().player;

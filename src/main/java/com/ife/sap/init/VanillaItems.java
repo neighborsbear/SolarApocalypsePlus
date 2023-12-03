@@ -46,4 +46,11 @@ public class VanillaItems {
     public static final RegistryObject<Item> TALL_GRASS = REGISTRY.register("tall_grass", () -> new BlockItem(VanillaBlocks.TALL_Grass.get(), new Item.Properties()));
     public static final RegistryObject<Item> FERN = REGISTRY.register("fern", () -> new BlockItem(VanillaBlocks.FERN.get(), new Item.Properties()));
     public static final RegistryObject<Item> LARGE_FERN = REGISTRY.register("large_fern", () -> new BlockItem(VanillaBlocks.LARGE_FERN.get(), new Item.Properties()));
+    //CORAL
+    public static final RegistryObject<Item> BRAIN_CORAL = REGISTRY.register("brain_coral", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DEAD_BRAIN_CORAL = REGISTRY.register("dead_brain_coral", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BRAIN_CORAL_FAN = REGISTRY.register("brain_coral_fan", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL_FAN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DEAD_BRAIN_CORAL_FAN = REGISTRY.register("dead_brain_coral_fan", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL_FAN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BRAIN_CORAL_WALL_FAN = REGISTRY.register("brain_coral_wall_fan", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL_WALL_FAN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DEAD_BRAIN_CORAL_WALL_FAN = REGISTRY.register("dead_brain_coral_wall_fan", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL_WALL_FAN.get(), new Item.Properties()));
 }

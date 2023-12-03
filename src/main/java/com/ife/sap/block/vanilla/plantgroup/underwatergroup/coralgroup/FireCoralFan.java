@@ -7,14 +7,19 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CoralPlantBlock;
+import net.minecraft.world.level.block.CoralFanBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import static net.minecraft.world.level.block.Blocks.DEAD_BRAIN_CORAL;
+import static net.minecraft.world.level.block.Blocks.DEAD_FIRE_CORAL_FAN;
 
-public class BrainCoral extends CoralPlantBlock {
-    public BrainCoral() {
-        super(DEAD_BRAIN_CORAL, Properties.copy(Blocks.BRAIN_CORAL).randomTicks());
+public class FireCoralFan extends CoralFanBlock {
+    public FireCoralFan() {
+        super(DEAD_FIRE_CORAL_FAN, Properties.copy(Blocks.FIRE_CORAL_FAN).randomTicks());
+    }
+
+    @Override
+    public boolean isRandomlyTicking(BlockState state) {
+        return true;
     }
 
     @Override
