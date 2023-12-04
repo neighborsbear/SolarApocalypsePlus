@@ -1,5 +1,6 @@
 package com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup;
 
+import com.ife.sap.init.VanillaBlocks;
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -14,7 +15,7 @@ import static net.minecraft.world.level.block.Blocks.DEAD_FIRE_CORAL_FAN;
 
 public class FireCoralFan extends CoralFanBlock {
     public FireCoralFan() {
-        super(DEAD_FIRE_CORAL_FAN, Properties.copy(Blocks.FIRE_CORAL_FAN).randomTicks());
+        super(VanillaBlocks.DEAD_FIRE_CORAL_FAN.get(), Properties.copy(Blocks.FIRE_CORAL_FAN).randomTicks());
     }
 
     @Override

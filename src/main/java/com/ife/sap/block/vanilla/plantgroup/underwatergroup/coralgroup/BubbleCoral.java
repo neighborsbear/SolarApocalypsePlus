@@ -1,5 +1,6 @@
 package com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup;
 
+import com.ife.sap.init.VanillaBlocks;
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -14,7 +15,7 @@ import static net.minecraft.world.level.block.Blocks.DEAD_BUBBLE_CORAL;
 
 public class BubbleCoral extends CoralPlantBlock {
     public BubbleCoral() {
-        super(DEAD_BUBBLE_CORAL, Properties.copy(Blocks.BUBBLE_CORAL).randomTicks());
+        super(VanillaBlocks.DEAD_BUBBLE_CORAL.get(), Properties.copy(Blocks.BUBBLE_CORAL).randomTicks());
     }
 
     @Override

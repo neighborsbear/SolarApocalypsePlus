@@ -1,5 +1,6 @@
 package com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup;
 
+import com.ife.sap.init.VanillaBlocks;
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -14,7 +15,7 @@ import static net.minecraft.world.level.block.Blocks.DEAD_HORN_CORAL;
 
 public class HornCoral extends CoralPlantBlock {
     public HornCoral() {
-        super(DEAD_HORN_CORAL, Properties.copy(Blocks.HORN_CORAL).randomTicks());
+        super(VanillaBlocks.DEAD_HORN_CORAL.get(), Properties.copy(Blocks.HORN_CORAL).randomTicks());
     }
 
     @Override
