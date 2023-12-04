@@ -1,8 +1,15 @@
 package com.ife.sap.init;
 
 
+import java.util.function.Function;
+
+import com.mojang.datafixers.types.Func;
+
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -47,10 +54,19 @@ public class VanillaItems {
     public static final RegistryObject<Item> FERN = REGISTRY.register("fern", () -> new BlockItem(VanillaBlocks.FERN.get(), new Item.Properties()));
     public static final RegistryObject<Item> LARGE_FERN = REGISTRY.register("large_fern", () -> new BlockItem(VanillaBlocks.LARGE_FERN.get(), new Item.Properties()));
     //CORAL
-    public static final RegistryObject<Item> BRAIN_CORAL = REGISTRY.register("brain_coral", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL.get(), new Item.Properties()));
-    public static final RegistryObject<Item> DEAD_BRAIN_CORAL = REGISTRY.register("dead_brain_coral", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BRAIN_CORAL_FAN = REGISTRY.register("brain_coral_fan", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL_FAN.get(), new Item.Properties()));
-    public static final RegistryObject<Item> DEAD_BRAIN_CORAL_FAN = REGISTRY.register("dead_brain_coral_fan", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL_FAN.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BRAIN_CORAL_WALL_FAN = REGISTRY.register("brain_coral_wall_fan", () -> new BlockItem(VanillaBlocks.BRAIN_CORAL_WALL_FAN.get(), new Item.Properties()));
-    public static final RegistryObject<Item> DEAD_BRAIN_CORAL_WALL_FAN = REGISTRY.register("dead_brain_coral_wall_fan", () -> new BlockItem(VanillaBlocks.DEAD_BRAIN_CORAL_WALL_FAN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> TUBE_CORAL_FAN = registerBlock(VanillaBlocks.TUBE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.TUBE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> BRAIN_CORAL_FAN = registerBlock(VanillaBlocks.BRAIN_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.BRAIN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> BUBBLE_CORAL_FAN = registerBlock(VanillaBlocks.BUBBLE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.BUBBLE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> FIRE_CORAL_FAN = registerBlock(VanillaBlocks.FIRE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.FIRE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> HORN_CORAL_FAN = registerBlock(VanillaBlocks.HORN_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.HORN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> DEAD_TUBE_CORAL_FAN = registerBlock(VanillaBlocks.DEAD_TUBE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.DEAD_TUBE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> DEAD_BRAIN_CORAL_FAN = registerBlock(VanillaBlocks.DEAD_BRAIN_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.DEAD_BRAIN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> DEAD_BUBBLE_CORAL_FAN = registerBlock(VanillaBlocks.DEAD_BUBBLE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.DEAD_BUBBLE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> DEAD_FIRE_CORAL_FAN = registerBlock(VanillaBlocks.DEAD_FIRE_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.DEAD_FIRE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistryObject<Item> DEAD_HORN_CORAL_FAN = registerBlock(VanillaBlocks.DEAD_HORN_CORAL_FAN, b -> new StandingAndWallBlockItem(b, VanillaBlocks.DEAD_HORN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
+
+    public static RegistryObject<Item> registerBlock(RegistryObject<Block> block, Function<Block, BlockItem> item) {
+    	return REGISTRY.register(block.getId().getPath(), () -> item.apply(block.get()));
+    }
+    
 }
