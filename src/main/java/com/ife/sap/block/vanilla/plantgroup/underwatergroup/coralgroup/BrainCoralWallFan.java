@@ -10,10 +10,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CoralWallFanBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.PushReaction;
-
-import static net.minecraft.world.level.block.Blocks.BRAIN_CORAL_FAN;
-import static net.minecraft.world.level.block.Blocks.DEAD_BRAIN_CORAL_WALL_FAN;
 
 public class BrainCoralWallFan extends CoralWallFanBlock {
     public BrainCoralWallFan() {

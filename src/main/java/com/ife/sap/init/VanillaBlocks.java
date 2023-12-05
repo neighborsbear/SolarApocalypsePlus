@@ -77,6 +77,7 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> SEA_PICKLE = REGISTRY.register("sea_pickle", () -> new SeaPickle());
     public static final RegistryObject<Block> KELP = REGISTRY.register("kelp", () -> new Kelp());
     public static final RegistryObject<Block> KELP_PLANT = REGISTRY.register("kelp_plant", () -> new KelpPlant());
+    public static final RegistryObject<Block> LILY_PAD = REGISTRY.register("lily_pad", () -> new LilyPad());
     //CORAL
     public static final RegistryObject<Block> DEAD_TUBE_CORAL = REGISTRY.register("dead_tube_coral", () -> new DeadTubeCoral());
     public static final RegistryObject<Block> DEAD_BRAIN_CORAL = REGISTRY.register("dead_brain_coral", () -> new DeadBrainCoral());

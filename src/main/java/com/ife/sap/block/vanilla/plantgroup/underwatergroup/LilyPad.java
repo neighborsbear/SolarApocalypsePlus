@@ -1,6 +1,5 @@
-package com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup;
+package com.ife.sap.block.vanilla.plantgroup.underwatergroup;
 
-import com.ife.sap.init.VanillaBlocks;
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -8,19 +7,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CoralWallFanBlock;
+import net.minecraft.world.level.block.KelpBlock;
+import net.minecraft.world.level.block.WaterlilyBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-import static net.minecraft.world.level.block.Blocks.DEAD_HORN_CORAL_WALL_FAN;
-
-public class HornCoralWallFan extends CoralWallFanBlock {
-    public HornCoralWallFan() {
-        super(VanillaBlocks.DEAD_HORN_CORAL_WALL_FAN.get(), Properties.copy(Blocks.HORN_CORAL_WALL_FAN).randomTicks());
-    }
-
-    @Override
-    public boolean isRandomlyTicking(BlockState state) {
-        return true;
+public class LilyPad extends WaterlilyBlock {
+    public LilyPad() {
+        super(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).randomTicks());
     }
 
     @Override

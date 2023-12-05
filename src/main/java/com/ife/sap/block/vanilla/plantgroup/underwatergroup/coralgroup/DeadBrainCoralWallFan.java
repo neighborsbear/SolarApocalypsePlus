@@ -1,20 +1,14 @@
 package com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import com.ife.sap.init.VanillaBlocks;
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-
-import static net.minecraft.world.level.block.Blocks.DEAD_BRAIN_CORAL_FAN;
 
 public class DeadBrainCoralWallFan extends BaseCoralWallFanBlock {
     public DeadBrainCoralWallFan() {
