@@ -7,6 +7,11 @@ import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
 import com.ife.sap.block.vanilla.plantgroup.saplinggroup.*;
 import com.ife.sap.block.vanilla.plantgroup.underwatergroup.*;
 import com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup.*;
+import com.ife.sap.block.vanilla.plantgroup.underwatergroup.waterblocks.*;
+import com.ife.sap.block.vanilla.plantgroup.wallgroup.CaveVines;
+import com.ife.sap.block.vanilla.plantgroup.wallgroup.CaveVinesPlant;
+import com.ife.sap.block.vanilla.plantgroup.wallgroup.GlowLichen;
+import com.ife.sap.block.vanilla.plantgroup.wallgroup.Vine;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.grower.*;
 import net.minecraftforge.registries.DeferredRegister;
@@ -78,7 +83,7 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> KELP = REGISTRY.register("kelp", () -> new Kelp());
     public static final RegistryObject<Block> KELP_PLANT = REGISTRY.register("kelp_plant", () -> new KelpPlant());
     public static final RegistryObject<Block> LILY_PAD = REGISTRY.register("lily_pad", () -> new LilyPad());
-    //CORAL
+    ////CORAL
     public static final RegistryObject<Block> DEAD_TUBE_CORAL = REGISTRY.register("dead_tube_coral", () -> new DeadTubeCoral());
     public static final RegistryObject<Block> DEAD_BRAIN_CORAL = REGISTRY.register("dead_brain_coral", () -> new DeadBrainCoral());
     public static final RegistryObject<Block> DEAD_BUBBLE_CORAL = REGISTRY.register("dead_bubble_coral", () -> new DeadBubbleCoral());
@@ -109,4 +114,14 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> BUBBLE_CORAL_WALL_FAN = REGISTRY.register("bubble_coral_wall_fan", () -> new BubbleCoralWallFan());
     public static final RegistryObject<Block> FIRE_CORAL_WALL_FAN = REGISTRY.register("fire_coral_wall_fan", () -> new FireCoralWallFan());
     public static final RegistryObject<Block> HORN_CORAL_WALL_FAN = REGISTRY.register("horn_coral_wall_fan", () -> new HornCoralWallFan());
+    ////WATERBLOCKS
+    public static final RegistryObject<Block> DRIED_KELP_BLOCK = REGISTRY.register("dried_kelp_block", () -> new DriedKelpBlock());
+    public static final RegistryObject<Block> SPONGE = REGISTRY.register("sponge", () -> new Sponge());
+    public static final RegistryObject<Block> WET_SPONGE = REGISTRY.register("wet_sponge", () -> new WetSponge());
+    //wall
+    public static final RegistryObject<Block> VINE = REGISTRY.register("vine", () -> new Vine());
+    public static final RegistryObject<Block> GLOW_LICHEN = REGISTRY.register("glow_lichen", () -> new GlowLichen());
+    public static final RegistryObject<Block> CAVE_VINES = REGISTRY.register("cave_vines", () -> new CaveVines());
+    public static final RegistryObject<Block> CAVE_VINES_PLANT = REGISTRY.register("cave_vines_plant", () -> new CaveVinesPlant());
+
 }

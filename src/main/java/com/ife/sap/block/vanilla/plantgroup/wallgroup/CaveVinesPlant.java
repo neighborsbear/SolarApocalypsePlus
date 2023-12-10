@@ -1,4 +1,4 @@
-package com.ife.sap.block.vanilla.plantgroup.underwatergroup;
+package com.ife.sap.block.vanilla.plantgroup.wallgroup;
 
 import com.ife.sap.procedures.SimpleDeleteProcedure;
 import net.minecraft.client.Minecraft;
@@ -7,13 +7,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.WaterlilyBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.CaveVinesPlantBlock;
+import net.minecraft.world.level.block.GlowLichenBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class LilyPad extends WaterlilyBlock {
-    public LilyPad() {
-        super(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).randomTicks());
+public class CaveVinesPlant extends CaveVinesPlantBlock {
+    public CaveVinesPlant() {
+        super(Properties.copy(Blocks.CAVE_VINES_PLANT).randomTicks());
     }
 
     @Override

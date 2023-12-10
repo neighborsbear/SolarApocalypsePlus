@@ -17,7 +17,7 @@ public class IceMeltProcedure {
 				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)) {
 			if ((((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.ICE) || ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FROSTED_ICE))) {
 				if (Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) / 1.5
-						&& SapModVariables.MapVariables.get(world).SolarFlare == 1 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
+						&& SapModVariables.MapVariables.get(world).SolarFlare >= 1 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.WATER.defaultBlockState(), 3);
 				}
 				if (Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) / 1.5
