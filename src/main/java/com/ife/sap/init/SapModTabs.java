@@ -23,5 +23,8 @@ public class SapModTabs {
 			tabData.accept(SapModBlocks.DUST.get().asItem());
 			tabData.accept(SapModBlocks.WITHERED_LEAVES.get().asItem());
 		}
+		if (tabData.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+			tabData.accept(SapModItems.UV_UMBRELLA.get());
+		}
 	}
 }

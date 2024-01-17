@@ -2,5 +2,6 @@
   "block.sap.dust": "재",
   "block.sap.crushed_dirt": "마른 흙",
   "block.sap.withered_leaves": "시든 잎",
+  "item.sap.uv_umbrella": "UV 우산",
   "effect.sap.dehydration": "탈수"
 }
