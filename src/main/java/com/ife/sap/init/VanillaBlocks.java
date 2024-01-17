@@ -4,7 +4,6 @@ import com.ife.sap.block.vanilla.dirtgroup.*;
 import com.ife.sap.block.vanilla.icegroup.*;
 import com.ife.sap.block.vanilla.plantgroup.bushgroup.*;
 import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
-import com.ife.sap.block.vanilla.plantgroup.loggroup.*;
 import com.ife.sap.block.vanilla.plantgroup.saplinggroup.*;
 import com.ife.sap.block.vanilla.plantgroup.underwatergroup.*;
 import com.ife.sap.block.vanilla.plantgroup.underwatergroup.coralgroup.*;
@@ -13,14 +12,8 @@ import com.ife.sap.block.vanilla.plantgroup.wallgroup.CaveVines;
 import com.ife.sap.block.vanilla.plantgroup.wallgroup.CaveVinesPlant;
 import com.ife.sap.block.vanilla.plantgroup.wallgroup.GlowLichen;
 import com.ife.sap.block.vanilla.plantgroup.wallgroup.Vine;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -62,19 +55,10 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> MANGROVE_LEAVES = REGISTRY.register("mangrove_leaves", () -> new MangroveLeaves());
     public static final RegistryObject<Block> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new OakLeaves());
     public static final RegistryObject<Block> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new SpruceLeaves());
-    //LOG
     //SAPLING
-    public static final RegistryObject<Block> ACACIA_SAPLING = REGISTRY.register("acacia_sapling", () -> new AcaciaSapling(new AcaciaTreeGrower()));
-    public static final RegistryObject<Block> BIRCH_SAPLING = REGISTRY.register("birch_sapling", () -> new BirchSapling(new BirchTreeGrower()));
-    public static final RegistryObject<Block> CHERRY_SAPLING = REGISTRY.register("cherry_sapling", () -> new CherrySapling(new CherryTreeGrower()));
-    public static final RegistryObject<Block> DARK_OAK_SAPLING = REGISTRY.register("dark_oak_sapling", () -> new DarkOakSapling(new DarkOakTreeGrower()));
-    public static final RegistryObject<Block> JUNGLE_SAPLING = REGISTRY.register("jungle_sapling", () -> new JungleSapling(new JungleTreeGrower()));
     public static final RegistryObject<Block> MANGROVE_SAPLING = REGISTRY.register("mangrove_propagule", () -> new MangrovePropagule());
-    public static final RegistryObject<Block> OAK_SAPLING = REGISTRY.register("oak_sapling", () -> new OakSapling(new OakTreeGrower()));
-    public static final RegistryObject<Block> SPRUCE_SAPLING = REGISTRY.register("spruce_sapling", () -> new SpruceSapling(new SpruceTreeGrower()));
     public static final RegistryObject<Block> AZALEA = REGISTRY.register("azalea", () -> new Azalea());
     public static final RegistryObject<Block> FLOWERING_AZALEA = REGISTRY.register("flowering_azalea", () -> new FloweringAzalea());
-    public static final RegistryObject<Block> BAMBOO_SAPLING = REGISTRY.register("bamboo_sapling", () -> new BambooSapling());
     //BUSHGROUP
     public static final RegistryObject<Block> DEAD_BUSH = REGISTRY.register("dead_bush", () -> new DeadBush());
     public static final RegistryObject<Block> BROWN_MUSHROOM = REGISTRY.register("brown_mushroom", () -> new BrownMushroom());
@@ -131,13 +115,5 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> GLOW_LICHEN = REGISTRY.register("glow_lichen", () -> new GlowLichen());
     public static final RegistryObject<Block> CAVE_VINES = REGISTRY.register("cave_vines", () -> new CaveVines());
     public static final RegistryObject<Block> CAVE_VINES_PLANT = REGISTRY.register("cave_vines_plant", () -> new CaveVinesPlant());
-
-
-
-    private static RotatedPillarBlock log(MapColor p_285370_, MapColor p_285126_) {
-        return new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
-            return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_285370_ : p_285126_;
-        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
-    }
 
 }
