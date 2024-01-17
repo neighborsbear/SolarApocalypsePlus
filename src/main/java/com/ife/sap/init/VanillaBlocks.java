@@ -56,17 +56,9 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new OakLeaves());
     public static final RegistryObject<Block> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new SpruceLeaves());
     //SAPLING
-    public static final RegistryObject<Block> ACACIA_SAPLING = REGISTRY.register("acacia_sapling", () -> new AcaciaSapling(new AcaciaTreeGrower()));
-    public static final RegistryObject<Block> BIRCH_SAPLING = REGISTRY.register("birch_sapling", () -> new BirchSapling(new BirchTreeGrower()));
-    public static final RegistryObject<Block> CHERRY_SAPLING = REGISTRY.register("cherry_sapling", () -> new CherrySapling(new CherryTreeGrower()));
-    public static final RegistryObject<Block> DARK_OAK_SAPLING = REGISTRY.register("dark_oak_sapling", () -> new DarkOakSapling(new DarkOakTreeGrower()));
-    public static final RegistryObject<Block> JUNGLE_SAPLING = REGISTRY.register("jungle_sapling", () -> new JungleSapling(new JungleTreeGrower()));
     public static final RegistryObject<Block> MANGROVE_SAPLING = REGISTRY.register("mangrove_propagule", () -> new MangrovePropagule());
-    public static final RegistryObject<Block> OAK_SAPLING = REGISTRY.register("oak_sapling", () -> new OakSapling(new OakTreeGrower()));
-    public static final RegistryObject<Block> SPRUCE_SAPLING = REGISTRY.register("spruce_sapling", () -> new SpruceSapling(new SpruceTreeGrower()));
     public static final RegistryObject<Block> AZALEA = REGISTRY.register("azalea", () -> new Azalea());
     public static final RegistryObject<Block> FLOWERING_AZALEA = REGISTRY.register("flowering_azalea", () -> new FloweringAzalea());
-    public static final RegistryObject<Block> BAMBOO_SAPLING = REGISTRY.register("bamboo_sapling", () -> new BambooSapling());
     //BUSHGROUP
     public static final RegistryObject<Block> DEAD_BUSH = REGISTRY.register("dead_bush", () -> new DeadBush());
     public static final RegistryObject<Block> BROWN_MUSHROOM = REGISTRY.register("brown_mushroom", () -> new BrownMushroom());
