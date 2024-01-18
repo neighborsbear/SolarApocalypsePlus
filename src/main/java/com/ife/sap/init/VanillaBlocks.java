@@ -60,14 +60,6 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> AZALEA = REGISTRY.register("azalea", () -> new Azalea());
     public static final RegistryObject<Block> FLOWERING_AZALEA = REGISTRY.register("flowering_azalea", () -> new FloweringAzalea());
     //BUSHGROUP
-    public static final RegistryObject<Block> DEAD_BUSH = REGISTRY.register("dead_bush", () -> new DeadBush());
-    public static final RegistryObject<Block> BROWN_MUSHROOM = REGISTRY.register("brown_mushroom", () -> new BrownMushroom());
-    public static final RegistryObject<Block> RED_MUSHROOM = REGISTRY.register("red_mushroom", () -> new RedMushroom());
-    public static final RegistryObject<Block> Grass = REGISTRY.register("grass", () -> new Grass());
-    public static final RegistryObject<Block> TALL_Grass = REGISTRY.register("tall_grass", () -> new TallGrass());
-    public static final RegistryObject<Block> FERN = REGISTRY.register("fern", () -> new Fern());
-    public static final RegistryObject<Block> LARGE_FERN = REGISTRY.register("large_fern", () -> new LargeFern());
-    public static final RegistryObject<Block> SUGAR_CANE = REGISTRY.register("sugar_cane", () -> new SugarCane());
     //UNDERWATER
     public static final RegistryObject<Block> SEAGRASS = REGISTRY.register("seagrass", () -> new Seagrass());
     public static final RegistryObject<Block> TALL_SEAGRASS = REGISTRY.register("tall_seagrass", () -> new TallSeagrass());

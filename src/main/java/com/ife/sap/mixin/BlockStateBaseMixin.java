@@ -1,5 +1,6 @@
 package com.ife.sap.mixin;
 
+import net.minecraft.world.level.block.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -7,14 +8,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.common.collect.ImmutableMap;
-import com.ife.sap.procedures.SmallPlantDeleteProcedure;
+import com.ife.sap.procedures.*;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateHolder;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -33,8 +32,11 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        if (block instanceof SaplingBlock) {
+        if (block instanceof BushBlock || block instanceof SaplingBlock || block instanceof TallGrassBlock || block instanceof DoublePlantBlock || block instanceof SugarCaneBlock) {
             SmallPlantDeleteProcedure.execute(level, x, y, z);
+        }
+        if (block instanceof DeadBushBlock) {
+            SimpleDeleteProcedure.execute(level, x, y, z);
         }
     }
 

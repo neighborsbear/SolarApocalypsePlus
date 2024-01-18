@@ -45,10 +45,7 @@ public class VanillaItems {
     public static final RegistryObject<Item> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new BlockItem(VanillaBlocks.OAK_LEAVES.get(), new Item.Properties()));
     public static final RegistryObject<Item> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new BlockItem(VanillaBlocks.SPRUCE_LEAVES.get(), new Item.Properties()));
     //BUSH
-    public static final RegistryObject<Item> GRASS = REGISTRY.register("grass", () -> new BlockItem(VanillaBlocks.Grass.get(), new Item.Properties()));
-    public static final RegistryObject<Item> TALL_GRASS = REGISTRY.register("tall_grass", () -> new BlockItem(VanillaBlocks.TALL_Grass.get(), new Item.Properties()));
-    public static final RegistryObject<Item> FERN = REGISTRY.register("fern", () -> new BlockItem(VanillaBlocks.FERN.get(), new Item.Properties()));
-    public static final RegistryObject<Item> LARGE_FERN = REGISTRY.register("large_fern", () -> new BlockItem(VanillaBlocks.LARGE_FERN.get(), new Item.Properties()));
+    //UNDERWATER
     public static final RegistryObject<Item> LILY_PAD = REGISTRY.register("lily_pad", () -> new PlaceOnWaterBlockItem(VanillaBlocks.LILY_PAD.get(), new Item.Properties()));
     //CORAL
     public static final RegistryObject<Item> TUBE_CORAL = REGISTRY.register("tube_coral", () -> new BlockItem(VanillaBlocks.TUBE_CORAL.get(), new Item.Properties()));
