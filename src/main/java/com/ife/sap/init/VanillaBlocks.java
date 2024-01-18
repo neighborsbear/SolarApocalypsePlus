@@ -56,17 +56,19 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new OakLeaves());
     public static final RegistryObject<Block> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new SpruceLeaves());
     //SAPLING
-    public static final RegistryObject<Block> MANGROVE_SAPLING = REGISTRY.register("mangrove_propagule", () -> new MangrovePropagule());
-    public static final RegistryObject<Block> AZALEA = REGISTRY.register("azalea", () -> new Azalea());
-    public static final RegistryObject<Block> FLOWERING_AZALEA = REGISTRY.register("flowering_azalea", () -> new FloweringAzalea());
     //BUSHGROUP
+    public static final RegistryObject<Block> DEAD_BUSH = REGISTRY.register("dead_bush", () -> new DeadBush());
+    public static final RegistryObject<Block> BROWN_MUSHROOM = REGISTRY.register("brown_mushroom", () -> new BrownMushroom());
+    public static final RegistryObject<Block> RED_MUSHROOM = REGISTRY.register("red_mushroom", () -> new RedMushroom());
+    public static final RegistryObject<Block> Grass = REGISTRY.register("grass", () -> new Grass());
+    public static final RegistryObject<Block> TALL_Grass = REGISTRY.register("tall_grass", () -> new TallGrass());
+    public static final RegistryObject<Block> FERN = REGISTRY.register("fern", () -> new Fern());
+    public static final RegistryObject<Block> LARGE_FERN = REGISTRY.register("large_fern", () -> new LargeFern());
+    public static final RegistryObject<Block> SUGAR_CANE = REGISTRY.register("sugar_cane", () -> new SugarCane());
     //UNDERWATER
-    public static final RegistryObject<Block> SEAGRASS = REGISTRY.register("seagrass", () -> new Seagrass());
-    public static final RegistryObject<Block> TALL_SEAGRASS = REGISTRY.register("tall_seagrass", () -> new TallSeagrass());
     public static final RegistryObject<Block> SEA_PICKLE = REGISTRY.register("sea_pickle", () -> new SeaPickle());
     public static final RegistryObject<Block> KELP = REGISTRY.register("kelp", () -> new Kelp());
     public static final RegistryObject<Block> KELP_PLANT = REGISTRY.register("kelp_plant", () -> new KelpPlant());
-    public static final RegistryObject<Block> LILY_PAD = REGISTRY.register("lily_pad", () -> new LilyPad());
     ////CORAL
     public static final RegistryObject<Block> DEAD_TUBE_CORAL = REGISTRY.register("dead_tube_coral", () -> new DeadTubeCoral());
     public static final RegistryObject<Block> DEAD_BRAIN_CORAL = REGISTRY.register("dead_brain_coral", () -> new DeadBrainCoral());

@@ -1,6 +1,6 @@
 package com.ife.sap.init;
 
-import com.ife.sap.item.*;
+import com.ife.sap.item.UvUmbrellaItem;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,7 +17,6 @@ public class SapModItems {
 	public static final RegistryObject<Item> DUST = block(SapModBlocks.DUST);
 	public static final RegistryObject<Item> WITHERED_LEAVES = block(SapModBlocks.WITHERED_LEAVES);
 	public static final RegistryObject<Item> UV_UMBRELLA = REGISTRY.register("uv_umbrella", () -> new UvUmbrellaItem());
-
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

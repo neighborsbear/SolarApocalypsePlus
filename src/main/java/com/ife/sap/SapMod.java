@@ -1,6 +1,9 @@
 package com.ife.sap;
 
 import com.ife.sap.init.*;
+import com.ife.sap.procedures.SimpleDeleteProcedure;
+import com.ife.sap.procedures.WoodBlockFProcedure;
+import net.minecraft.world.level.block.WaterlilyBlock;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -15,6 +18,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SeagrassBlock;
+import net.minecraft.core.Holder.Reference;
 import net.minecraft.network.FriendlyByteBuf;
 
 import java.util.function.Supplier;
@@ -27,6 +36,7 @@ import java.util.ArrayList;
 import java.util.AbstractMap;
 
 import com.ife.sap.init.SapModTabs;
+import com.ife.sap.procedures.SmallPlantDeleteProcedure;
 import com.ife.sap.init.SapModItems;
 import com.ife.sap.init.SapModBlocks;
 
@@ -82,5 +92,37 @@ public class SapMod {
             actions.forEach(e -> e.getKey().run());
             workQueue.removeAll(actions);
         }
+    }
+
+    public static Procedure getProcedure(Block block) {
+        Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
+        if (builtInRegistryHolder.is(BlockTags.SAPLINGS)) {
+            return SmallPlantDeleteProcedure::execute;
+        }
+        if (builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
+                || block instanceof WaterlilyBlock
+        ) {
+            return SimpleDeleteProcedure::execute;
+        }
+
+        if (builtInRegistryHolder.is(BlockTags.LOGS)
+                || builtInRegistryHolder.is(BlockTags.PLANKS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_BUTTONS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_DOORS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_STAIRS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_SLABS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_FENCES)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_PRESSURE_PLATES)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_TRAPDOORS)
+        ) {
+            return WoodBlockFProcedure::execute;
+        }
+
+        return null;
+    }
+
+    @FunctionalInterface
+    public static interface Procedure {
+        void call(LevelAccessor world, double x, double y, double z);
     }
 }

@@ -1,0 +1,8 @@
+{
+        "replace": false,
+        "values": [
+                "minecraft:see_pickle",
+                "minecraft:kelp",
+                "minecraft:kelp_plant"
+        ]
+}
