@@ -15,6 +15,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SeagrassBlock;
+import net.minecraft.core.Holder.Reference;
 import net.minecraft.network.FriendlyByteBuf;
 
 import java.util.function.Supplier;
@@ -27,6 +33,7 @@ import java.util.ArrayList;
 import java.util.AbstractMap;
 
 import com.ife.sap.init.SapModTabs;
+import com.ife.sap.procedures.SmallPlantDeleteProcedure;
 import com.ife.sap.init.SapModItems;
 import com.ife.sap.init.SapModBlocks;
 
@@ -82,5 +89,19 @@ public class SapMod {
             actions.forEach(e -> e.getKey().run());
             workQueue.removeAll(actions);
         }
+    }
+
+    public static Procedure getProcedure(Block block) {
+        Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
+        if (builtInRegistryHolder.is(BlockTags.SAPLINGS) || block instanceof SeagrassBlock) {
+            return SmallPlantDeleteProcedure::execute;
+        }
+
+        return null;
+    }
+
+    @FunctionalInterface
+    public static interface Procedure {
+        void call(LevelAccessor world, double x, double y, double z);
     }
 }
