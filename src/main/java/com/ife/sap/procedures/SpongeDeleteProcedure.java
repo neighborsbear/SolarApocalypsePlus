@@ -22,7 +22,7 @@ public class SpongeDeleteProcedure {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.SPONGE.defaultBlockState(), 3);
 		}
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare >= 2
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 2
 				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
 				&& y >= 63
 				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
@@ -32,7 +32,7 @@ public class SpongeDeleteProcedure {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare >= 3
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 3
 				&& y >= 63
 				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
 			if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.WET_SPONGE) {
@@ -41,7 +41,7 @@ public class SpongeDeleteProcedure {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare >= 4
+				&& SapModVariables.MapVariables.get(world).SolarFlare == 4
 				&& y >= 8
 				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
 			if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.WET_SPONGE) {

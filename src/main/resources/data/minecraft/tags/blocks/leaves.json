@@ -1,6 +1,6 @@
 {
         "replace": false,
         "values": [
-                "minecraft:oak_leaves"
+                "sap:withered_leaves"
         ]
 }

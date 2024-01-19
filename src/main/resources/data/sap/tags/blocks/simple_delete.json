@@ -1,0 +1,13 @@
+{
+        "replace": false,
+        "values": [
+                "minecraft:honeycomb_block",
+                "minecraft:torch",
+                "minecraft:redstone_torch",
+                "minecraft:soul_torch",
+                "minecraft:suspicious_sand",
+                "minecraft:suspicious_gravel",
+                "minecraft:tripwire_hook",
+                "minecraft:tripwire"
+        ]
+}

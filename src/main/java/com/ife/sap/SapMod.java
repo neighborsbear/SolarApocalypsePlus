@@ -1,9 +1,9 @@
 package com.ife.sap;
 
 import com.ife.sap.init.*;
-import com.ife.sap.procedures.SimpleDeleteProcedure;
-import com.ife.sap.procedures.WoodBlockFProcedure;
-import net.minecraft.world.level.block.WaterlilyBlock;
+import com.ife.sap.procedures.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -20,9 +20,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SeagrassBlock;
 import net.minecraft.core.Holder.Reference;
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -36,7 +33,6 @@ import java.util.ArrayList;
 import java.util.AbstractMap;
 
 import com.ife.sap.init.SapModTabs;
-import com.ife.sap.procedures.SmallPlantDeleteProcedure;
 import com.ife.sap.init.SapModItems;
 import com.ife.sap.init.SapModBlocks;
 
@@ -96,15 +92,51 @@ public class SapMod {
 
     public static Procedure getProcedure(Block block) {
         Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
-        if (builtInRegistryHolder.is(BlockTags.SAPLINGS)) {
-            return SmallPlantDeleteProcedure::execute;
-        }
-        if (builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
+        //사소한 오브
+        if (builtInRegistryHolder.is(SapModTags.Blocks.REPLACEABLE_BY_TREES)
+                || builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
+                && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                || builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
+                || builtInRegistryHolder.is(BlockTags.SWORD_EFFICIENT)
+                || builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_HOE)
+                || builtInRegistryHolder.is(BlockTags.FLOWERS)
+                || builtInRegistryHolder.is(BlockTags.BANNERS)
+                || builtInRegistryHolder.is(BlockTags.CANDLES)
+                || builtInRegistryHolder.is(BlockTags.CANDLE_CAKES)
+                || builtInRegistryHolder.is(BlockTags.BEDS)
+                && !(block instanceof SpongeBlock)
+                && !(block instanceof WetSpongeBlock)
+                && !(block instanceof SculkBlock)
+                && !(block instanceof SculkSensorBlock)
+                && !(block instanceof SculkVeinBlock)
+                && !(block instanceof SculkCatalystBlock)
+                && !(block instanceof SculkShriekerBlock)
+                || block instanceof BushBlock
                 || block instanceof WaterlilyBlock
-        ) {
+                || block instanceof CoralBlock
+                || block instanceof CoralPlantBlock
+                || block instanceof BaseCoralPlantBlock
+                || block instanceof BaseCoralFanBlock
+                || block instanceof BaseCoralWallFanBlock
+                || block instanceof CoralFanBlock
+                || block instanceof CoralWallFanBlock
+                || block instanceof CactusBlock
+                || block instanceof FrogspawnBlock
+                || block instanceof WebBlock
+                || block instanceof HoneyBlock
+                || block instanceof SlimeBlock
+            ) {
             return SimpleDeleteProcedure::execute;
         }
-
+        //작은 식물
+        if (builtInRegistryHolder.is(BlockTags.SAPLINGS)
+                && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                || block instanceof BambooSaplingBlock
+                || block instanceof BambooStalkBlock
+        ) {
+            return SmallPlantDeleteProcedure::execute;
+        }
+        //불타는계열
         if (builtInRegistryHolder.is(BlockTags.LOGS)
                 || builtInRegistryHolder.is(BlockTags.PLANKS)
                 || builtInRegistryHolder.is(BlockTags.WOODEN_BUTTONS)
@@ -114,8 +146,26 @@ public class SapMod {
                 || builtInRegistryHolder.is(BlockTags.WOODEN_FENCES)
                 || builtInRegistryHolder.is(BlockTags.WOODEN_PRESSURE_PLATES)
                 || builtInRegistryHolder.is(BlockTags.WOODEN_TRAPDOORS)
-        ) {
+                || builtInRegistryHolder.is(BlockTags.BAMBOO_BLOCKS)
+                || builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_AXE)
+                || builtInRegistryHolder.is(BlockTags.WOOL)
+                || builtInRegistryHolder.is(BlockTags.WOOL_CARPETS)
+                && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+            ) {
             return WoodBlockFProcedure::execute;
+        }
+        //나뭇잎
+        if (builtInRegistryHolder.is(BlockTags.LEAVES)
+                && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+            ) {
+            return WitheredLeavesBlockFProcedure::execute;
+        }
+        //스폰지
+        if (block instanceof SpongeBlock
+                || block instanceof WetSpongeBlock
+                && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+            ) {
+            return SpongeDeleteProcedure::execute;
         }
 
         return null;
