@@ -2,6 +2,7 @@ package com.ife.sap.init;
 
 import com.ife.sap.block.vanilla.dirtgroup.*;
 import com.ife.sap.block.vanilla.icegroup.*;
+import com.ife.sap.block.vanilla.plantgroup.leavesgroup.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,6 +35,16 @@ public class VanillaBlocks {
     public static final RegistryObject<Block> FLOWING_WATER = REGISTRY.register("flowing_water", () -> new FlowingWater());
     public static final RegistryObject<Block> BUBBLE_COLUMN = REGISTRY.register("bubble_column", () -> new BubbleColumn());
     //LEAVES
+    public static final RegistryObject<Block> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new AcaciaLeaves());
+    public static final RegistryObject<Block> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new AzaleaLeaves());
+    public static final RegistryObject<Block> BIRCH_LEAVES = REGISTRY.register("birch_leaves", () -> new BirchLeaves());
+    public static final RegistryObject<Block> CHERRY_LEAVES = REGISTRY.register("cherry_leaves", () -> new CherryLeaves());
+    public static final RegistryObject<Block> DARK_OAK_LEAVES = REGISTRY.register("dark_oak_leaves", () -> new DarkOakLeaves());
+    public static final RegistryObject<Block> FLOWERING_AZALEA_LEAVES = REGISTRY.register("flowering_azalea_leaves", () -> new FloweringAzaleaLeaves());
+    public static final RegistryObject<Block> JUNGLE_LEAVES = REGISTRY.register("jungle_leaves", () -> new JungleLeaves());
+    public static final RegistryObject<Block> MANGROVE_LEAVES = REGISTRY.register("mangrove_leaves", () -> new MangroveLeaves());
+    public static final RegistryObject<Block> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new OakLeaves());
+    public static final RegistryObject<Block> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new SpruceLeaves());
     //SAPLING
     //BUSHGROUP
     //UNDERWATER
