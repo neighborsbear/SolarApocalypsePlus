@@ -2,7 +2,6 @@ package com.ife.sap;
 
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -104,6 +103,7 @@ public class SapMod {
                 || builtInRegistryHolder.is(BlockTags.CANDLES)
                 || builtInRegistryHolder.is(BlockTags.CANDLE_CAKES)
                 || builtInRegistryHolder.is(BlockTags.BEDS)
+                && !builtInRegistryHolder.is(BlockTags.LEAVES)
                 && !(block instanceof SpongeBlock)
                 && !(block instanceof WetSpongeBlock)
                 && !(block instanceof SculkBlock)
@@ -111,6 +111,7 @@ public class SapMod {
                 && !(block instanceof SculkVeinBlock)
                 && !(block instanceof SculkCatalystBlock)
                 && !(block instanceof SculkShriekerBlock)
+                && !(block instanceof LeavesBlock)
                 || block instanceof BushBlock
                 || block instanceof WaterlilyBlock
                 || block instanceof CoralBlock
@@ -130,6 +131,7 @@ public class SapMod {
         }
         //작은 식물
         if (builtInRegistryHolder.is(BlockTags.SAPLINGS)
+                && !builtInRegistryHolder.is(BlockTags.LEAVES)
                 && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
                 || block instanceof BambooSaplingBlock
                 || block instanceof BambooStalkBlock
@@ -151,14 +153,22 @@ public class SapMod {
                 || builtInRegistryHolder.is(BlockTags.WOOL)
                 || builtInRegistryHolder.is(BlockTags.WOOL_CARPETS)
                 && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                && !builtInRegistryHolder.is(BlockTags.LEAVES)
             ) {
             return WoodBlockFProcedure::execute;
         }
         //나뭇잎
-        if (builtInRegistryHolder.is(BlockTags.LEAVES)
+        if (block instanceof LeavesBlock
+                || block instanceof CherryLeavesBlock
+                || block instanceof MangroveLeavesBlock
+                || builtInRegistryHolder.is(BlockTags.LEAVES)
                 && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
             ) {
             return WitheredLeavesBlockFProcedure::execute;
+        }
+        //액체
+        if (block instanceof LiquidBlock) {
+            return IceMeltProcedure::execute;
         }
         //스폰지
         if (block instanceof SpongeBlock
