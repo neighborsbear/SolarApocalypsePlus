@@ -30,16 +30,7 @@ public class VanillaItems {
     public static final RegistryObject<Item> POWDER_SNOW = REGISTRY.register("powder_snow", () -> new BlockItem(VanillaBlocks.POWDER_SNOW.get(), new Item.Properties()));
     //public static final RegistryObject<Item> WATER = REGISTRY.register("water", () -> new BlockItem(VanillaBlocks.WATER, new Item.Properties()));
     //LEAVES
-    public static final RegistryObject<Item> ACACIA_LEAVES = REGISTRY.register("acacia_leaves", () -> new BlockItem(VanillaBlocks.ACACIA_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> AZALEA_LEAVES = REGISTRY.register("azalea_leaves", () -> new BlockItem(VanillaBlocks.AZALEA_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BIRCH_LEAVES = REGISTRY.register("birch_leaves", () -> new BlockItem(VanillaBlocks.BIRCH_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> CHERRY_LEAVES = REGISTRY.register("cherry_leaves", () -> new BlockItem(VanillaBlocks.CHERRY_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> DARK_OAK_LEAVES = REGISTRY.register("dark_oak_leaves", () -> new BlockItem(VanillaBlocks.DARK_OAK_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> FLOWERING_AZALEA_LEAVES = REGISTRY.register("flowering_azalea_leaves", () -> new BlockItem(VanillaBlocks.FLOWERING_AZALEA_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> JUNGLE_LEAVES = REGISTRY.register("jungle_leaves", () -> new BlockItem(VanillaBlocks.JUNGLE_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> MANGROVE_LEAVES = REGISTRY.register("mangrove_leaves", () -> new BlockItem(VanillaBlocks.MANGROVE_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> OAK_LEAVES = REGISTRY.register("oak_leaves", () -> new BlockItem(VanillaBlocks.OAK_LEAVES.get(), new Item.Properties()));
-    public static final RegistryObject<Item> SPRUCE_LEAVES = REGISTRY.register("spruce_leaves", () -> new BlockItem(VanillaBlocks.SPRUCE_LEAVES.get(), new Item.Properties()));
+
     //CORAL
     //wall
 }

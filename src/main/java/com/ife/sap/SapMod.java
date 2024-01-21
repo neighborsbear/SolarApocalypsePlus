@@ -157,7 +157,8 @@ public class SapMod {
             }
         }
         //나뭇잎
-        if (builtInRegistryHolder.is(BlockTags.LEAVES)
+        if (builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
+                || builtInRegistryHolder.is(BlockTags.LEAVES)
                 || block instanceof LeavesBlock
                 || block instanceof CherryLeavesBlock
                 || block instanceof MangroveLeavesBlock) {

@@ -22,7 +22,7 @@ public abstract class BlockBehaviourMixin implements BlockBehaviourAccessor {
     @Final
     @Mutable
     @Shadow
-    protected boolean isRandomlyTicking;
+    private boolean isRandomlyTicking;
 
     @Unique
     private boolean sap$originalIsRandomlyTicking;

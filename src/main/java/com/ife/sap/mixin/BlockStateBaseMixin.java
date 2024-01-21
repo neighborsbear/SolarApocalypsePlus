@@ -27,7 +27,7 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
         super(p_61117_, p_61118_, p_61119_);
     }
 
-    @Inject(method = "initCache", at = @At("HEAD"))
+    @Inject(method = "initCache", at = @At("TAIL"))
     private void initCache(CallbackInfo callbackInfo) {
         if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
             accessor.sap$initCaches();
