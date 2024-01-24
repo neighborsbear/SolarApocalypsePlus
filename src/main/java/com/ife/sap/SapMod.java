@@ -4,6 +4,7 @@ import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -257,9 +258,9 @@ public class SapMod {
             }
         }
         //침수
-        if (block instanceof Block) {
-            return WaterTagDeleteProcedure::execute;
-        }
+        //if (block instanceof Block) {
+        //    return WaterTagDeleteProcedure::execute;
+        //}
         return null;
     }
 
