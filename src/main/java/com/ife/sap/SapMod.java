@@ -2,6 +2,7 @@ package com.ife.sap;
 
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -101,6 +102,7 @@ public class SapMod {
                 || builtInRegistryHolder.is(BlockTags.CANDLES)
                 || builtInRegistryHolder.is(BlockTags.CANDLE_CAKES)
                 || builtInRegistryHolder.is(BlockTags.BEDS)
+                || builtInRegistryHolder.is(BlockTags.SNOW)
                 || block instanceof BushBlock
                 || block instanceof WaterlilyBlock
                 || block instanceof CoralBlock
@@ -116,6 +118,7 @@ public class SapMod {
                 || block instanceof HoneyBlock
                 || block instanceof SlimeBlock) {
             if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
                     && !builtInRegistryHolder.is(BlockTags.LEAVES)
                     && !(block instanceof SpongeBlock)
                     && !(block instanceof WetSpongeBlock)
@@ -133,7 +136,8 @@ public class SapMod {
                 || block instanceof BambooSaplingBlock
                 || block instanceof BambooStalkBlock) {
             if (!builtInRegistryHolder.is(BlockTags.LEAVES)
-                    && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)) {
+                    && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
                 return SmallPlantDeleteProcedure::execute;
             }
         }
@@ -152,32 +156,106 @@ public class SapMod {
                 || builtInRegistryHolder.is(BlockTags.WOOL)
                 || builtInRegistryHolder.is(BlockTags.WOOL_CARPETS)) {
             if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
                     && !builtInRegistryHolder.is(BlockTags.LEAVES)) {
                 return WoodBlockFProcedure::execute;
             }
         }
         //나뭇잎
-        if (builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
-                || builtInRegistryHolder.is(BlockTags.LEAVES)
+        if (builtInRegistryHolder.is(BlockTags.LEAVES)
                 || block instanceof LeavesBlock
                 || block instanceof CherryLeavesBlock
                 || block instanceof MangroveLeavesBlock) {
-            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
                 return WitheredLeavesBlockFProcedure::execute;
             }
         }
-        //액체
-        if (block instanceof LiquidBlock) {
-            return IceMeltProcedure::execute;
+        //잔디
+        if (builtInRegistryHolder.is(SapModTags.Blocks.MOIST_DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return GrassBlockTCDirtProcedure::execute;
+            }
+        }
+        //흙
+        if (builtInRegistryHolder.is(SapModTags.Blocks.DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return DirtTCCoarseDirtProcedure::execute;
+            }
+        }
+        //거친흙
+        if (builtInRegistryHolder.is(SapModTags.Blocks.HARD_DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return CoarseDirtTCCrushedDirtBlockProcedure::execute;
+            }
+        }
+        //모래
+        if (builtInRegistryHolder.is(BlockTags.SAND)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return SandTCDustProcedure::execute;
+            }
+        }
+        //가루
+        if (builtInRegistryHolder.is(SapModTags.Blocks.POWDER)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return DustLostProcedure::execute;
+            }
+        }
+        //얼음
+        if (builtInRegistryHolder.is(BlockTags.ICE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return IceMeltProcedure::execute;
+            }
+        }
+        //물
+        if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WaterEvaporateProcedure::execute;
+            }
+        }
+        //공기방울
+        if (block instanceof BubbleColumnBlock) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return BubbleEvaporateProcedure::execute;
+            }
         }
         //스폰지
         if (block instanceof SpongeBlock
                 || block instanceof WetSpongeBlock) {
-            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
                 return SpongeDeleteProcedure::execute;
             }
         }
-
+        //이끼 낀 돌
+        if (builtInRegistryHolder.is(SapModTags.Blocks.MOSSY)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return MossyDeleteProcedure::execute;
+            }
+        }
+        //TNT
+        if (builtInRegistryHolder.is(SapModTags.Blocks.TNT)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return TNTFProcedure::execute;
+            }
+        }
+        //화분
+        if (builtInRegistryHolder.is(BlockTags.FLOWER_POTS)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return FlowerPotFProcedure::execute;
+            }
+        }
         return null;
     }
 

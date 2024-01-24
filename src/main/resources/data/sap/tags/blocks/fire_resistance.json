@@ -71,8 +71,8 @@
                 "minecraft:warped_wall_sign",
                 "minecraft:potted_warped_fungus",
                 "minecraft:potted_warped_roots",
-                "minecraft:ancient_debris"
-
-
+                "minecraft:ancient_debris",
+                "minecraft:soul_sand",
+                "minecraft:soul_soil"
         ]
 }

@@ -23,14 +23,24 @@ import net.minecraft.world.level.block.state.properties.Property;
 @Mixin(BlockStateBase.class)
 public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState> {
 
+    @Shadow
+    private boolean isRandomlyTicking;
+
     protected BlockStateBaseMixin(Block p_61117_, ImmutableMap<Property<?>, Comparable<?>> p_61118_, MapCodec<BlockState> p_61119_) {
         super(p_61117_, p_61118_, p_61119_);
     }
 
-    @Inject(method = "initCache", at = @At("TAIL"))
-    private void initCache(CallbackInfo callbackInfo) {
+    @Inject(method = "initCache", at = @At("HEAD"))
+    private void initCacheHead(CallbackInfo callbackInfo) {
         if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
             accessor.sap$initCaches();
+        }
+    }
+
+    @Inject(method = "initCache", at = @At("TAIL"))
+    private void initCacheTail(CallbackInfo callbackInfo) {
+        if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
+            this.isRandomlyTicking = this.isRandomlyTicking || accessor.sap$getProcedure() != null;
         }
     }
 

@@ -1,5 +1,6 @@
 package com.ife.sap.block.vanilla.dirtgroup;
 
+import com.ife.sap.procedures.CoarseDirtTCCrushedDirtBlockProcedure;
 import com.ife.sap.procedures.GrassBlockTCDirtProcedure;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -25,7 +26,7 @@ public class RootedDirt extends RootedDirtBlock {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        GrassBlockTCDirtProcedure.execute(level, x, y, z);
+        CoarseDirtTCCrushedDirtBlockProcedure.execute(level, x, y, z);
     }
 
 }

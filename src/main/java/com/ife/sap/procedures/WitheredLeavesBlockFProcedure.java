@@ -20,7 +20,7 @@ public class WitheredLeavesBlockFProcedure {
 					&& (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) || (world.getBlockState(BlockPos.containing(x, y+1, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())
 					&& !world.getLevelData().isRaining()
 					&& world.dayTime() >= 48000
-					&& Mth.nextDouble(RandomSource.create(), 0, 10) <= ((world.dayTime() / 24000) / 2) + 3) {
+					&& Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) + 3) {
 				world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
 			}
 		}
@@ -29,7 +29,7 @@ public class WitheredLeavesBlockFProcedure {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
 					&& !world.getLevelData().isRaining()
-					&& world.dayTime() >= 144000
+					&& world.dayTime() >= 240000
 					&& y >= 63
 					&& Mth.nextDouble(RandomSource.create(), 0, 10) <= ((world.dayTime() / 24000) / 3) + 5) {
 				world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
@@ -38,7 +38,7 @@ public class WitheredLeavesBlockFProcedure {
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
-					&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
+					&& (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z)) || (world.getBlockState(BlockPos.containing(x, y+1, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())
 					&& !world.getLevelData().isRaining()
 					&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())
 					&& Mth.nextDouble(RandomSource.create(), 0, 10) <= ((world.dayTime() / 24000) / 3) + 2) {
@@ -49,26 +49,39 @@ public class WitheredLeavesBlockFProcedure {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
 					&& !world.getLevelData().isRaining()
-					&& world.dayTime() >= 144000
-					&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())
+					&& world.dayTime() >= 240000
+					&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get()
+					&& y >= 63)
+					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
+				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+			}
+		}
+		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+				&& (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get()) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
+				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+			}
+		}
+		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+				&& world.dayTime() >= 360000) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3
+					&& y >= 63) {
+				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+			}
+		}
+		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+				&& world.dayTime() >= 360000) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
+					&& y >= 8
 					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
 				world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
 			}
-		} else if (SapModVariables.MapVariables.get(world).SolarFlare == 3 && world.dayTime() < 360000) {
+		}
+		if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
-				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-		} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 4
-				&& world.dayTime() >= 216000) {
-			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& y >= 63
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
-				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-		}else if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
-			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& y >= 8
+					&& y >= 64
 					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 2) + 3) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
