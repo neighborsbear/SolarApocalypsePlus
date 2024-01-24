@@ -256,6 +256,10 @@ public class SapMod {
                 return FlowerPotFProcedure::execute;
             }
         }
+        //침수
+        if (block instanceof Block) {
+            return WaterTagDeleteProcedure::execute;
+        }
         return null;
     }
 
