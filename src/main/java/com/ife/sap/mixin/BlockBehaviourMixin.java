@@ -1,5 +1,6 @@
 package com.ife.sap.mixin;
 
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -38,7 +39,9 @@ public abstract class BlockBehaviourMixin implements BlockBehaviourAccessor {
     @Override
     public void sap$initCaches() {
         Block block = (Block) (Object) this;
-        this.sap$procedure = SapMod.getProcedure(block);
+        BlockState blockState = (BlockState) (Object) this;
+        this.sap$procedure = SapMod.getBProcedure(block);
+        this.sap$procedure = SapMod.getBSProcedure(blockState);
         this.isRandomlyTicking = this.sap$originalIsRandomlyTicking || this.sap$procedure != null;
     }
 

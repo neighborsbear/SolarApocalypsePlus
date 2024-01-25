@@ -5,6 +5,7 @@ import com.ife.sap.procedures.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -91,7 +92,7 @@ public class SapMod {
         }
     }
 
-    public static Procedure getProcedure(Block block) {
+    public static Procedure getBProcedure(Block block) {
         Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
         //사소한 오브
         if (builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
@@ -215,12 +216,12 @@ public class SapMod {
             }
         }
         //물
-        if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
-            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
-                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-                return WaterEvaporateProcedure::execute;
-            }
-        }
+        //if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
+        //    if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+        //            && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+        //        return WaterEvaporateProcedure::execute;
+        //    }
+        //}
         //공기방울
         if (block instanceof BubbleColumnBlock) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
@@ -261,6 +262,15 @@ public class SapMod {
         //if (block instanceof Block) {
         //    return WaterTagDeleteProcedure::execute;
         //}
+        return null;
+    }
+    public static Procedure getBSProcedure(BlockState blockState) {
+        Reference<Block> builtInRegistryHolder = blockState.getBlock().builtInRegistryHolder();
+
+        //침수
+        if (blockState instanceof BlockState(BlockStateProperties) {
+            return WaterTagDeleteProcedure::execute;
+        }
         return null;
     }
 
