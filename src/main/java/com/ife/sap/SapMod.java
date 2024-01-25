@@ -2,10 +2,11 @@ package com.ife.sap;
 
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -262,13 +263,20 @@ public class SapMod {
         //if (block instanceof Block) {
         //    return WaterTagDeleteProcedure::execute;
         //}
+        //포탈관련
+        if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
+            return DeleteUnconditionallyProcedure::execute;
+        }
+        //엔드프레임
+        if (block instanceof EndPortalFrameBlock) {
+            return EndFrameTagDeleteProcedure::execute;
+        }
         return null;
     }
     public static Procedure getBSProcedure(BlockState blockState) {
         Reference<Block> builtInRegistryHolder = blockState.getBlock().builtInRegistryHolder();
-
         //침수
-        if (blockState instanceof BlockState(BlockStateProperties) {
+        if ((blockState.getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && blockState.getValue(_getbp2)) == true) {
             return WaterTagDeleteProcedure::execute;
         }
         return null;
