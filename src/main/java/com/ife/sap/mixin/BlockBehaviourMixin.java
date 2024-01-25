@@ -39,9 +39,7 @@ public abstract class BlockBehaviourMixin implements BlockBehaviourAccessor {
     @Override
     public void sap$initCaches() {
         Block block = (Block) (Object) this;
-        BlockState blockState = (BlockState) (Object) this;
-        this.sap$procedure = SapMod.getBProcedure(block);
-        this.sap$procedure = SapMod.getBSProcedure(blockState);
+        this.sap$procedure = SapMod.getProcedure(block);
         this.isRandomlyTicking = this.sap$originalIsRandomlyTicking || this.sap$procedure != null;
     }
 

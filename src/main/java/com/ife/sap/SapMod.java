@@ -93,7 +93,7 @@ public class SapMod {
         }
     }
 
-    public static Procedure getBProcedure(Block block) {
+    public static Procedure getProcedure(Block block) {
         Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
         //사소한 오브
         if (builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
@@ -270,14 +270,6 @@ public class SapMod {
         //엔드프레임
         if (block instanceof EndPortalFrameBlock) {
             return EndFrameTagDeleteProcedure::execute;
-        }
-        return null;
-    }
-    public static Procedure getBSProcedure(BlockState blockState) {
-        Reference<Block> builtInRegistryHolder = blockState.getBlock().builtInRegistryHolder();
-        //침수
-        if ((blockState.getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && blockState.getValue(_getbp2)) == true) {
-            return WaterTagDeleteProcedure::execute;
         }
         return null;
     }
