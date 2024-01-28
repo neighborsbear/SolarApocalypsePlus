@@ -38,18 +38,24 @@ public class StartProcedure {
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(15, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_LAVA_SOURCE_CONVERSION).set(false, world.getServer());
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 144000 && world.dayTime() < 312000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 2;
 			SapModVariables.MapVariables.get(world).syncData(world);
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(30, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_LAVA_SOURCE_CONVERSION).set(false, world.getServer());
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 312000 && world.dayTime() < 480000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 3;
 			SapModVariables.MapVariables.get(world).syncData(world);
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(60, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_LAVA_SOURCE_CONVERSION).set(false, world.getServer());
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(0, 0, 0), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "weather clear");
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 480000 && world.dayTime() < 648000) {
@@ -58,6 +64,8 @@ public class StartProcedure {
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(90, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_LAVA_SOURCE_CONVERSION).set(true, world.getServer());
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(0, 0, 0), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "weather clear");
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 648000) {
@@ -66,6 +74,8 @@ public class StartProcedure {
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(100, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_LAVA_SOURCE_CONVERSION).set(true, world.getServer());
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(0, 0, 0), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "weather clear");
 		}
