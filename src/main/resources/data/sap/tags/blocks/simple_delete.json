@@ -35,6 +35,7 @@
                 "minecraft:piston",
                 "minecraft:sticky_piston",
                 "minecraft:piston_head",
-                "minecraft:smoker"
+                "minecraft:smoker",
+                "minecraft:coal_block"
         ]
 }

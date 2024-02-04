@@ -3,10 +3,16 @@ package com.ife.sap;
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraftforge.common.ForgeConfig;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.ForgeBiomeTagsProvider;
+import net.minecraftforge.common.data.ForgeBlockTagsProvider;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -270,6 +276,58 @@ public class SapMod {
         //엔드프레임
         if (block instanceof EndPortalFrameBlock) {
             return EndFrameTagDeleteProcedure::execute;
+        }
+        //돌계열
+        if (builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
+                    && !builtInRegistryHolder.is(BlockTags.IRON_ORES)
+                    && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_IRON)
+                    && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_RAW_IRON)
+                    && !builtInRegistryHolder.is(BlockTags.REDSTONE_ORES)
+                    && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_REDSTONE)
+                    && !builtInRegistryHolder.is(BlockTags.DIAMOND_ORES)
+                    && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_DIAMOND)
+                    && !builtInRegistryHolder.is(BlockTags.LAPIS_ORES)
+                    && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_LAPIS)) {
+                //심층암계열
+                if (builtInRegistryHolder.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
+                        || builtInRegistryHolder.is(Tags.Blocks.COBBLESTONE_DEEPSLATE)
+                        || builtInRegistryHolder.is(Tags.Blocks.ORE_BEARING_GROUND_DEEPSLATE)
+                        || builtInRegistryHolder.is(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE)
+                        || builtInRegistryHolder.is(SapModTags.Blocks.DEEPSLATE)) {
+                    if (builtInRegistryHolder.is(BlockTags.STAIRS)) {
+                        //return EndFrameTagDeleteProcedure::execute;
+                    } else if (builtInRegistryHolder.is(BlockTags.SLABS)) {
+                        //return EndFrameTagDeleteProcedure::execute;
+                    } else if (builtInRegistryHolder.is(BlockTags.WALLS)) {
+                        //return EndFrameTagDeleteProcedure::execute;
+                    } else {
+                        //return EndFrameTagDeleteProcedure::execute;
+                    }
+                //일반돌계열
+                    //계단
+                } else if (builtInRegistryHolder.is(BlockTags.STAIRS)) {
+                    //return EndFrameTagDeleteProcedure::execute;
+                    //반블록
+                } else if (builtInRegistryHolder.is(BlockTags.SLABS)) {
+                    //return EndFrameTagDeleteProcedure::execute;
+                    //담장
+                } else if (builtInRegistryHolder.is(BlockTags.WALLS)) {
+                    //return EndFrameTagDeleteProcedure::execute;
+                    //일반블록
+                } else {
+                    //return EndFrameTagDeleteProcedure::execute;
+                }
+            }
+        }
+        //자갈
+        if (builtInRegistryHolder.is(Tags.Blocks.GRAVEL)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                //return FlowerPotFProcedure::execute;
+            }
         }
         return null;
     }
