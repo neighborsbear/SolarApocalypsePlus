@@ -1,4 +1,4 @@
-package com.ife.sap.procedures;
+package com.ife.sap.procedures.stats;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
@@ -62,7 +62,7 @@ public class DehydrationActiveProcedure {
 					_entity.hurt(new DamageSource(_entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)) {
 						@Override
 						public Component getLocalizedDeathMessage(LivingEntity _msgEntity) {
-							String _translatekey = "death.attack." + "\uC218\uBD84\uC774 \uBD80\uC871\uD574 \uC8FD\uC5C8\uC2B5\uB2C8\uB2E4.";
+							String _translatekey = "\uC218\uBD84\uC774 \uBD80\uC871\uD574 \uC8FD\uC5C8\uC2B5\uB2C8\uB2E4.";
 							if (this.getEntity() == null && this.getDirectEntity() == null) {
 								return _msgEntity.getKillCredit() != null
 										? Component.translatable(_translatekey + ".player", _msgEntity.getDisplayName(), _msgEntity.getKillCredit().getDisplayName())

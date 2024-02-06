@@ -1,4 +1,4 @@
-package com.ife.sap.procedures;
+package com.ife.sap.procedures.commands;
 
 import com.ife.sap.network.SapModVariables;
 import net.minecraft.network.chat.Component;

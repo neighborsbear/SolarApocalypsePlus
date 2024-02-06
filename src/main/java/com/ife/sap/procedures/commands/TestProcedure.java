@@ -1,4 +1,4 @@
-package com.ife.sap.procedures;
+package com.ife.sap.procedures.commands;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
@@ -13,5 +13,9 @@ public class TestProcedure {
 			return;
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal(("Step:" + SapModVariables.MapVariables.get(world).SolarFlare + " / " + "Today Time:" + SapModVariables.MapVariables.get(world).TodayTime)), false);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(("FireStack" + entity.getPersistentData().getDouble("SapStack"))), false);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(("WaterStack" + entity.getPersistentData().getDouble("WaterStack"))), false);
 	}
 }

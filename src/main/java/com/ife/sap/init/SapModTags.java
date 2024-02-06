@@ -19,5 +19,8 @@ public class SapModTags {
         public static final TagKey<Block> TNT = BlockTags.create(new ResourceLocation(SapMod.MODID, "tnt"));
         public static final TagKey<Block> WATER = BlockTags.create(new ResourceLocation(SapMod.MODID, "water"));
         public static final TagKey<Block> DEEPSLATE = BlockTags.create(new ResourceLocation(SapMod.MODID, "deepslate"));
+        public static final TagKey<Block> COBBLESTONE = BlockTags.create(new ResourceLocation(SapMod.MODID, "cobblestone"));
+        public static final TagKey<Block> SANDSTONE = BlockTags.create(new ResourceLocation(SapMod.MODID, "sandstone"));
+        public static final TagKey<Block> CLAY = BlockTags.create(new ResourceLocation(SapMod.MODID, "clay"));
     }
 }

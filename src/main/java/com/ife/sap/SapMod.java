@@ -2,6 +2,7 @@ package com.ife.sap;
 
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
+import com.ife.sap.procedures.stones.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.FluidTags;
@@ -281,6 +282,8 @@ public class SapMod {
         if (builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
                     && !builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
+                    && !builtInRegistryHolder.is(SapModTags.Blocks.SANDSTONE)
+                    && !builtInRegistryHolder.is(SapModTags.Blocks.COBBLESTONE)
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
                     && !builtInRegistryHolder.is(BlockTags.IRON_ORES)
                     && !builtInRegistryHolder.is(Tags.Blocks.STORAGE_BLOCKS_IRON)
@@ -298,35 +301,58 @@ public class SapMod {
                         || builtInRegistryHolder.is(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE)
                         || builtInRegistryHolder.is(SapModTags.Blocks.DEEPSLATE)) {
                     if (builtInRegistryHolder.is(BlockTags.STAIRS)) {
-                        //return EndFrameTagDeleteProcedure::execute;
+                        return StoneTCCobbledDeepslateStairsProcedure::execute;
                     } else if (builtInRegistryHolder.is(BlockTags.SLABS)) {
-                        //return EndFrameTagDeleteProcedure::execute;
+                        return StoneTCCobbledDeepslateSlabProcedure::execute;
                     } else if (builtInRegistryHolder.is(BlockTags.WALLS)) {
-                        //return EndFrameTagDeleteProcedure::execute;
+                        return StoneTCCobbledDeepslateWallProcedure::execute;
                     } else {
-                        //return EndFrameTagDeleteProcedure::execute;
+                        return StoneTCCobbledDeepslateProcedure::execute;
                     }
                 //일반돌계열
-                    //계단
-                } else if (builtInRegistryHolder.is(BlockTags.STAIRS)) {
-                    //return EndFrameTagDeleteProcedure::execute;
-                    //반블록
-                } else if (builtInRegistryHolder.is(BlockTags.SLABS)) {
-                    //return EndFrameTagDeleteProcedure::execute;
-                    //담장
-                } else if (builtInRegistryHolder.is(BlockTags.WALLS)) {
-                    //return EndFrameTagDeleteProcedure::execute;
-                    //일반블록
                 } else {
-                    //return EndFrameTagDeleteProcedure::execute;
+                        //계단
+                    if (builtInRegistryHolder.is(BlockTags.STAIRS)) {
+                        return StoneTCCobblestoneStairsProcedure::execute;
+                        //반블록
+                    } else if (builtInRegistryHolder.is(BlockTags.SLABS)) {
+                        return StoneTCCobblestoneSlabProcedure::execute;
+                        //담장
+                    } else if (builtInRegistryHolder.is(BlockTags.WALLS)) {
+                        return StoneTCCobblestoneWallProcedure::execute;
+                        //일반블록
+                    } else {
+                        return StoneTCCobblestoneProcedure::execute;
+                    }
                 }
+            }
+        }
+        //조약돌
+        if (builtInRegistryHolder.is(SapModTags.Blocks.COBBLESTONE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return CobblestoneTCGravelProcedure::execute;
             }
         }
         //자갈
         if (builtInRegistryHolder.is(Tags.Blocks.GRAVEL)) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-                //return FlowerPotFProcedure::execute;
+                return GravelTCLavaProcedure::execute;
+            }
+        }
+        //사암
+        if (builtInRegistryHolder.is(SapModTags.Blocks.SANDSTONE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return CrushedDirtTCSandProcedure::execute;
+            }
+        }
+        //점토
+        if (builtInRegistryHolder.is(SapModTags.Blocks.CLAY)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return ClayTCTerracottaProcedure::execute;
             }
         }
         return null;

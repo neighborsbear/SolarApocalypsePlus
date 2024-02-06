@@ -11,7 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import com.ife.sap.procedures.TestProcedure;
+import com.ife.sap.procedures.commands.TestProcedure;
 
 @Mod.EventBusSubscriber
 public class TESTINGCommand {

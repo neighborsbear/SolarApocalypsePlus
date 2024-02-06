@@ -4,7 +4,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffect;
 
-import com.ife.sap.procedures.DehydrationActiveProcedure;
+import com.ife.sap.procedures.stats.DehydrationActiveProcedure;
 
 public class DehydrationMobEffect extends MobEffect {
 	public DehydrationMobEffect() {

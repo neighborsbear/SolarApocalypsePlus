@@ -1,7 +1,7 @@
 
 package com.ife.sap.command;
 
-import com.ife.sap.procedures.Set6Procedure;
+import com.ife.sap.procedures.commands.Set6Procedure;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

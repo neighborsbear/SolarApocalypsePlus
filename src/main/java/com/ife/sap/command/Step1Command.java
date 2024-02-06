@@ -1,8 +1,6 @@
 
 package com.ife.sap.command;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -13,7 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import com.ife.sap.procedures.Set1Procedure;
+import com.ife.sap.procedures.commands.Set1Procedure;
 
 @Mod.EventBusSubscriber
 public class Step1Command {

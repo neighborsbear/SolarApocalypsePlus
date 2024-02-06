@@ -24,8 +24,7 @@ public class CoarseDirtTCCrushedDirtBlockProcedure {
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 2
                 && world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
-                && world.dayTime() >= 168000
-                && Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) / 2 + 5) {
+                && world.dayTime() >= 168000) {
             world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.CRUSHED_DIRT.get().defaultBlockState(), 3);
         }else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 3

@@ -35,7 +35,7 @@ public class StartProcedure {
 		if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 0 && world.dayTime() < 144000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 1;
 			SapModVariables.MapVariables.get(world).syncData(world);
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(15, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(4, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(true, world.getServer());
@@ -43,7 +43,7 @@ public class StartProcedure {
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 144000 && world.dayTime() < 312000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 2;
 			SapModVariables.MapVariables.get(world).syncData(world);
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(30, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(5, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(true, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(true, world.getServer());
@@ -51,7 +51,7 @@ public class StartProcedure {
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 312000 && world.dayTime() < 480000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 3;
 			SapModVariables.MapVariables.get(world).syncData(world);
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(60, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(7, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
@@ -61,7 +61,7 @@ public class StartProcedure {
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 480000 && world.dayTime() < 648000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 4;
 			SapModVariables.MapVariables.get(world).syncData(world);
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(90, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(8, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
@@ -71,7 +71,7 @@ public class StartProcedure {
 		} else if (SapModVariables.MapVariables.get(world).SolarFlare != 6 && world.dayTime() >= 648000) {
 			SapModVariables.MapVariables.get(world).SolarFlare = 5;
 			SapModVariables.MapVariables.get(world).syncData(world);
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(100, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(10, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(false, world.getServer());
 			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(false, world.getServer());
