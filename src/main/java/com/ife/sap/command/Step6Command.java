@@ -6,6 +6,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.GameRules;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +27,10 @@ public class Step6Command {
 			Direction direction = entity.getDirection();
 
 			Set6Procedure.execute(world, entity);
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_RANDOMTICKING).set(3, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_FREEZE_DAMAGE).set(true, world.getServer());
+			world.getLevelData().getGameRules().getRule(GameRules.RULE_WATER_SOURCE_CONVERSION).set(true, world.getServer());
 			return 0;
 		}));
 	}
