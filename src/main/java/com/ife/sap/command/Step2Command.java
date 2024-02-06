@@ -27,7 +27,7 @@ public class Step2Command {
 				entity = FakePlayerFactory.getMinecraft(world);
 			Direction direction = entity.getDirection();
 
-			Set2Procedure.execute(world, entity);
+			Set2Procedure.execute(world, x, y, z, entity);
 			return 0;
 		}));
 	}
