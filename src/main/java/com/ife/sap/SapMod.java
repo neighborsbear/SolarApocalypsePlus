@@ -4,6 +4,9 @@ import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
 import com.ife.sap.procedures.stones.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.common.Tags;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -91,7 +94,9 @@ public class SapMod {
         }
     }
 
-    public static Procedure getProcedure(Block block) {
+    public static Procedure getProcedure(BlockState blockState) {
+        FluidState fluidState = blockState.getFluidState();
+        Block block = blockState.getBlock();
         Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
         //사소한 오브
         if (builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
@@ -257,10 +262,10 @@ public class SapMod {
                 return FlowerPotFProcedure::execute;
             }
         }
-        //침수
-        //if (block instanceof Block) {
-        //    return WaterTagDeleteProcedure::execute;
-        //}
+        //침수될 수 있으며, 현재 침수됨
+        if (blockState.hasProperty(BlockStateProperties.WATERLOGGED) && blockState.getValue(BlockStateProperties.WATERLOGGED)) {
+            return WaterTagDeleteProcedure::execute;
+        }
         //포탈관련
         if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
             return DeleteUnconditionallyProcedure::execute;

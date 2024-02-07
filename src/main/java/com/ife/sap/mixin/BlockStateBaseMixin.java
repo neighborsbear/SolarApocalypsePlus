@@ -2,12 +2,13 @@ package com.ife.sap.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.common.collect.ImmutableMap;
-import com.ife.sap.BlockBehaviourAccessor;
+import com.ife.sap.SapMod;
 import com.ife.sap.SapMod.Procedure;
 import com.mojang.serialization.MapCodec;
 
@@ -26,39 +27,38 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
     @Shadow
     private boolean isRandomlyTicking;
 
+    @Unique
+    private boolean sap$isOriginalRandomlyTicking;
+
+    @Unique
+    protected Procedure sap$procedure;
+
     protected BlockStateBaseMixin(Block p_61117_, ImmutableMap<Property<?>, Comparable<?>> p_61118_, MapCodec<BlockState> p_61119_) {
         super(p_61117_, p_61118_, p_61119_);
     }
 
-    @Inject(method = "initCache", at = @At("HEAD"))
-    private void initCacheHead(CallbackInfo callbackInfo) {
-        if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
-            accessor.sap$initCaches();
-        }
-    }
-
     @Inject(method = "initCache", at = @At("TAIL"))
     private void initCacheTail(CallbackInfo callbackInfo) {
-        if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
-            this.isRandomlyTicking = this.isRandomlyTicking || accessor.sap$getProcedure() != null;
-        }
+        this.sap$procedure = SapMod.getProcedure(this.asState());
+        this.isRandomlyTicking = this.isRandomlyTicking || this.sap$procedure != null;
     }
 
-    @Inject(method = "randomTick", at = @At("TAIL"))
+    @Inject(method = "randomTick", at = @At("HEAD"), cancellable = true)
     private void randomTick(ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo callbackInfo) {
-        if (this.getBlock() instanceof BlockBehaviourAccessor accessor) {
-            Procedure procedure = accessor.sap$getProcedure();
-            if (procedure != null) {
-                int x = pos.getX();
-                int y = pos.getY();
-                int z = pos.getZ();
-                procedure.call(level, x, y, z);
-            }
+        if (this.sap$procedure != null) {
+            int x = pos.getX();
+            int y = pos.getY();
+            int z = pos.getZ();
+            this.sap$procedure.call(level, x, y, z);
+        }
+
+        if (!this.sap$isOriginalRandomlyTicking) {
+            callbackInfo.cancel();
         }
     }
 
     @Shadow
-    private Block getBlock() {
+    private BlockState asState() {
         return null;
     }
 }
