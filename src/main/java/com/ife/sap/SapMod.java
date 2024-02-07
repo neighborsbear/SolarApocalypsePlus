@@ -164,7 +164,7 @@ public class SapMod {
             if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
                     && !builtInRegistryHolder.is(BlockTags.LEAVES)) {
-                //return WoodBlockFProcedure::execute;
+                return WoodBlockFProcedure::execute;
             }
         }
         //나뭇잎
