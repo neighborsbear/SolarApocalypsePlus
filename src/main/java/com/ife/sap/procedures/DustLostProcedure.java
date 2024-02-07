@@ -18,11 +18,86 @@ public class DustLostProcedure {
                 && world.dayTime() >= 144000
                 && y >= 64) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
         }
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 5
                 && y >= 8) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+            }
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == SapModBlocks.DUST.get()) {
+                world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+            }
         }
     }
 
