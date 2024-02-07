@@ -32,6 +32,18 @@ public class CrushedDirtTCSandProcedure {
 				&& world.dayTime() >= 360000
 				&& y >= 63) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == SapModBlocks.CRUSHED_DIRT.get()) {
+				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == SapModBlocks.CRUSHED_DIRT.get()) {
+				world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == SapModBlocks.CRUSHED_DIRT.get()) {
+				world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == SapModBlocks.CRUSHED_DIRT.get()) {
+				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
 		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 				&& world.dayTime() >= 504000

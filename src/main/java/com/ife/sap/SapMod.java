@@ -258,7 +258,7 @@ public class SapMod {
             }
         }
         //침수
-        //if (block instanceof Block) {
+        //if (block.defaultBlockState().getValue(BlockStateProperties.WATERLOGGED) == true) {
         //    return WaterTagDeleteProcedure::execute;
         //}
         //포탈관련
