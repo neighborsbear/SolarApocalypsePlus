@@ -26,20 +26,12 @@ public class WaterTagDeleteProcedure {
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 3
 				&& y >= 63
-				&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp2)) == true
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
-			if (world.getBlockState(BlockPos.containing(x, y, z)).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _booleanProp)
-				world.setBlock(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).setValue(_booleanProp, false), 3);
-		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare == 4
-				&& y >= 8
-				&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp2)) == true
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
+				&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp2)) == true) {
 			if (world.getBlockState(BlockPos.containing(x, y, z)).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _booleanProp)
 				world.setBlock(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).setValue(_booleanProp, false), 3);
 		}
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
+				&& SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 				&& y >= 8
 				&& ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _getbp2 && (world.getBlockState(BlockPos.containing(x, y, z))).getValue(_getbp2)) == true) {
 			if (world.getBlockState(BlockPos.containing(x, y, z)).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _booleanProp)

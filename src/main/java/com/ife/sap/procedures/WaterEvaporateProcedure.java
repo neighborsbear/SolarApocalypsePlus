@@ -74,8 +74,7 @@ public class WaterEvaporateProcedure {
 				&& SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 4
 				&& world.dayTime() >= 384000
 				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
-				&& y >= 63
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 2) <= (world.dayTime() / 24000)) {
+				&& y >= 63) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.WATER) {
 				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
@@ -131,8 +130,7 @@ public class WaterEvaporateProcedure {
 		} else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 4
 				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
-				&& y >= 8
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 3) <= (world.dayTime() / 24000)) {
+				&& y >= 8) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.WATER) {
 				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);

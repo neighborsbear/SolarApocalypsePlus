@@ -27,15 +27,13 @@ public class SandTCDustProcedure {
                 && SapModVariables.MapVariables.get(world).SolarFlare == 3
                 && !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
                 && !((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == Blocks.WATER)
-                && y >= 63
-                && Mth.nextInt(RandomSource.create(), 1, 10) == 2) {
+                && y >= 63) {
             world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
         }
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-                && SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-                && y >= 8
-                && Mth.nextInt(RandomSource.create(), 1, 10) == 4) {
-            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
+                && SapModVariables.MapVariables.get(world).SolarFlare == 4
+                && y >= 32) {
+            world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
         }
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 5

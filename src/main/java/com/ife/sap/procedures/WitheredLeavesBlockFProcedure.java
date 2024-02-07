@@ -58,45 +58,48 @@ public class WitheredLeavesBlockFProcedure {
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 				&& (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get()) {
-			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
+			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
 			}
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-				&& world.dayTime() >= 360000) {
+				&& world.dayTime() >= 360000
+				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3
 					&& y >= 63) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
 			}
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-				&& world.dayTime() >= 360000) {
+				&& world.dayTime() >= 360000
+				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get())) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& y >= 8
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 4) + 3) {
-				world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
+					&& y < 63 && y >= 8) {
+				if (Mth.nextDouble(RandomSource.create(), 0, 2) <= 1){
+					world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
+				} else {
+					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				}
 			}
 		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6) {
+		if (SapModVariables.MapVariables.get(world).SolarFlare == 4) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-					&& y >= 64
-					&& Mth.nextDouble(RandomSource.create(), 0, 15) <= ((world.dayTime() / 24000) / 2) + 3) {
-				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+					&& y >= 64) {
+				if (Mth.nextDouble(RandomSource.create(), 0, 2) <= 1){
+					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				} else {
+					world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+				}
 			}
 		}
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
-				&& y >= 8
-				&& Mth.nextDouble(RandomSource.create(), 0, 2) <= 1.5) {
-			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-		}
-		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
-				&& y >= 8
-				&& Mth.nextDouble(RandomSource.create(), 0, 2) > 1.5) {
-			world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				&& y >= 8) {
+				if (Mth.nextDouble(RandomSource.create(), 0, 2) <= 1){
+					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+			} else {
+					world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+				}
 		}
 	}
 }

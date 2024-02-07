@@ -29,14 +29,12 @@ public class FlowerPotFProcedure {
 		} else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 3
 				&& y >= 63
-				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FLOWER_POT)
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
+				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FLOWER_POT)) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.FLOWER_POT.defaultBlockState(), 3);
 		}else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 4
-				&& y >= 8
-				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FLOWER_POT)
-				&& Mth.nextDouble(RandomSource.create(), 0, (world.dayTime() / 24000) + 1) <= (world.dayTime() / 24000)) {
+				&& y >= 32
+				&& !((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FLOWER_POT)) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.FLOWER_POT.defaultBlockState(), 3);
 		}
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))

@@ -22,47 +22,49 @@ public class IceMeltProcedure {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.WATER.defaultBlockState(), 3);
 					}
 					if (Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+							&& SapModVariables.MapVariables.get(world).SolarFlare == 2
 							&& y >= 63) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 					} else if (Mth.nextDouble(RandomSource.create(), 0, 10) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 2 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+							&& SapModVariables.MapVariables.get(world).SolarFlare == 2
 							&& y < 63 && y >= 8) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.WATER.defaultBlockState(), 3);
+					} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+							&& y >= 8) {
+						world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 					}
 				}
 				if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.PACKED_ICE) {
 					if (Mth.nextDouble(RandomSource.create(), 0, 15) <= (world.dayTime() / 24000) / 1.5
 							&& SapModVariables.MapVariables.get(world).SolarFlare == 2) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.ICE.defaultBlockState(), 3);
-					} else if (Mth.nextDouble(RandomSource.create(), 0, 15) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+					} else if (SapModVariables.MapVariables.get(world).SolarFlare == 3
 							&& y >= 63) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.WATER.defaultBlockState(), 3);
-					} else if (Mth.nextDouble(RandomSource.create(), 0, 15) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+					} else if (SapModVariables.MapVariables.get(world).SolarFlare == 3
 							&& y < 63 && y >= 8) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.ICE.defaultBlockState(), 3);
+					}else if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+							&& y >= 8) {
+						world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 					}
 				}
 				if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.BLUE_ICE) {
-					if (Mth.nextDouble(RandomSource.create(), 0, 20) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare == 3) {
+					if (SapModVariables.MapVariables.get(world).SolarFlare == 3
+							&& y >= 8) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.PACKED_ICE.defaultBlockState(), 3);
-					} else if (Mth.nextDouble(RandomSource.create(), 0, 20) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+					} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 							&& y >= 63) {
 						world.setBlock(BlockPos.containing(x, y, z), Blocks.ICE.defaultBlockState(), 3);
-					} else if (Mth.nextDouble(RandomSource.create(), 0, 20) <= (world.dayTime() / 24000) / 1.5
-							&& SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-							&& y < 63 && y >= 8) {
-						world.setBlock(BlockPos.containing(x, y, z), Blocks.PACKED_ICE.defaultBlockState(), 3);
+					} else if (SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+							&& y >= 8) {
+						world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 					}
 				}
 			}
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& SapModVariables.MapVariables.get(world).SolarFlare == 5
-					&& y >= 63) {
+					&& y >= 8) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}

@@ -25,15 +25,15 @@ public class CoarseDirtTCCrushedDirtBlockProcedure {
                 && SapModVariables.MapVariables.get(world).SolarFlare == 2
                 && world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))
                 && world.dayTime() >= 168000) {
-            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.CRUSHED_DIRT.get().defaultBlockState(), 3);
+            world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
         }else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 3
                 && y >= 63) {
-            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.CRUSHED_DIRT.get().defaultBlockState(), 3);
+            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
         }else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare >= 4 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-                && y >= 8) {
-            world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.CRUSHED_DIRT.get().defaultBlockState(), 3);
+                && y >= 32) {
+            world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
         }
         if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
                 && SapModVariables.MapVariables.get(world).SolarFlare == 5
