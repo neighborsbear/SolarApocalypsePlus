@@ -3,6 +3,7 @@ package com.ife.sap;
 import com.ife.sap.init.*;
 import com.ife.sap.procedures.*;
 import com.ife.sap.procedures.stones.*;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -220,12 +221,12 @@ public class SapMod {
             }
         }
         //물
-        //if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
-        //    if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
-        //            && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-        //        return WaterEvaporateProcedure::execute;
-        //    }
-        //}
+        if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WaterEvaporateProcedure::execute;
+            }
+        }
         //공기방울
         if (block instanceof BubbleColumnBlock) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)

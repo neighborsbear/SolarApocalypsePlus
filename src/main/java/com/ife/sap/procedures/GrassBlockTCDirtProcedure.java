@@ -1,6 +1,7 @@
 package com.ife.sap.procedures;
 
 import com.ife.sap.init.SapModBlocks;
+import com.ife.sap.init.SapModTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.util.RandomSource;
@@ -34,16 +35,16 @@ public class GrassBlockTCDirtProcedure {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& y >= 63) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.SAND.defaultBlockState(), 3);
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.SAND.defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.SAND.defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.SAND.defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.SAND.defaultBlockState(), 3);
 				}
 			}
@@ -52,28 +53,28 @@ public class GrassBlockTCDirtProcedure {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& y >= 8) {
 				world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x + 1, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x - 1, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x + 1, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x - 1, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x + 1, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
-				if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 					world.setBlock(BlockPos.containing(x - 1, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
 				}
 			}
@@ -82,55 +83,55 @@ public class GrassBlockTCDirtProcedure {
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
 				&& y >= 8) {
 			world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-			if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.GRASS_BLOCK) {
+			if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(SapModTags.Blocks.MOIST_DIRT)) {
 				world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}
