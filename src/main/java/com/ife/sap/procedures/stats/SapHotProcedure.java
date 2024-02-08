@@ -46,6 +46,9 @@ public class SapHotProcedure {
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(SapModMobEffects.DEHYDRATION.get(), (int) entity.getPersistentData().getDouble("SapStack"), 0));
 		}
+		if (entity.getPersistentData().getDouble("Living") != 1) {
+			entity.getPersistentData().putDouble("Living", 1);
+		}
 		if (entity.getPersistentData().getDouble("SapStack") > 1200) {
 			entity.getPersistentData().putDouble("SapStack", 1200);
 		}

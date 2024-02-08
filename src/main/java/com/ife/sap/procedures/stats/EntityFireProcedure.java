@@ -1,8 +1,7 @@
 package com.ife.sap.procedures.stats;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
+import com.google.common.util.concurrent.TimeLimiter;
+import com.ife.sap.network.SapModVariables;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
@@ -11,6 +10,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 @Mod.EventBusSubscriber
 public class EntityFireProcedure {
@@ -26,7 +27,36 @@ public class EntityFireProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		entity.setSecondsOnFire(10);
-		entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE)), (float) (5));
+		if (entity.getPersistentData().getDouble("Living") != 1) {
+			if (SapModVariables.MapVariables.get(world).SolarFlare == 2
+					&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
+					&& !world.getLevelData().isRaining()
+					&& y >= 63) {
+				entity.setSecondsOnFire(5);
+				//TimeUnit.SECONDS.sleep(4);
+			}
+			if (SapModVariables.MapVariables.get(world).SolarFlare == 3
+					&& y >= 32) {
+				entity.setSecondsOnFire(10);
+				if (y >= 63) {
+					entity.lavaHurt();
+				}
+			}
+			if (SapModVariables.MapVariables.get(world).SolarFlare == 4
+					&& y >= 8) {
+				entity.setSecondsOnFire(10);
+				if (y >= 32) {
+					entity.lavaHurt();
+				}
+			}
+			if (SapModVariables.MapVariables.get(world).SolarFlare == 5
+					&& y >= -16) {
+				entity.setSecondsOnFire(10);
+				if (y >= 8) {
+					entity.lavaHurt();
+				}
+			}
+			//entity.setSecondsOnFire(2147483647);
+		}
 	}
 }
