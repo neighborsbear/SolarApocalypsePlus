@@ -11,8 +11,8 @@ public class VanillaBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
     //DIRT
     //ICE
-    public static final RegistryObject<Block> WATER = REGISTRY.register("water", () -> new Water());
-    public static final RegistryObject<Block> FLOWING_WATER = REGISTRY.register("flowing_water", () -> new FlowingWater());
+    //public static final RegistryObject<Block> WATER = REGISTRY.register("water", () -> new Water());
+    //public static final RegistryObject<Block> FLOWING_WATER = REGISTRY.register("flowing_water", () -> new FlowingWater());
     //LEAVES
     //SAPLING
     //BUSHGROUP
@@ -20,5 +20,4 @@ public class VanillaBlocks {
     ////CORAL
     ////WATERBLOCKS
     //wall
-
 }

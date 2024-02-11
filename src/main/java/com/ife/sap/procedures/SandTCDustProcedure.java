@@ -3,6 +3,7 @@ package com.ife.sap.procedures;
 import com.ife.sap.network.SapModVariables;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
@@ -29,16 +30,16 @@ public class SandTCDustProcedure {
                 && !((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == Blocks.WATER)
                 && y >= 63) {
             world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
         }
@@ -46,28 +47,28 @@ public class SandTCDustProcedure {
                 && SapModVariables.MapVariables.get(world).SolarFlare == 4
                 && y >= 32) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
         }
@@ -75,55 +76,55 @@ public class SandTCDustProcedure {
                 && SapModVariables.MapVariables.get(world).SolarFlare == 5
                 && y >= 8) {
             world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
             }
-            if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.SAND) {
+            if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.SAND)) {
                 world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
             }
         }

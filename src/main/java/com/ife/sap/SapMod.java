@@ -7,6 +7,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.common.Tags;
 import org.apache.logging.log4j.Logger;
@@ -98,7 +99,9 @@ public class SapMod {
     public static Procedure getProcedure(BlockState blockState) {
         FluidState fluidState = blockState.getFluidState();
         Block block = blockState.getBlock();
+        Fluid fluid = fluidState.getType();
         Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
+        Reference<Fluid> fluidReference = fluid.builtInRegistryHolder();
         //사소한 오브
         if (builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
                 || builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
@@ -127,6 +130,7 @@ public class SapMod {
             if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
                     && !builtInRegistryHolder.is(BlockTags.LEAVES)
+                    && !builtInRegistryHolder.is(FluidTags.WATER.location())
                     && !(block instanceof SpongeBlock)
                     && !(block instanceof WetSpongeBlock)
                     && !(block instanceof SculkBlock)
@@ -178,6 +182,13 @@ public class SapMod {
                 return WitheredLeavesBlockFProcedure::execute;
             }
         }
+        //이끼 낀 돌
+        if (builtInRegistryHolder.is(SapModTags.Blocks.MOSSY)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return MossyDeleteProcedure::execute;
+            }
+        }
         //잔디
         if (builtInRegistryHolder.is(SapModTags.Blocks.MOIST_DIRT)) {
             if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
@@ -227,6 +238,14 @@ public class SapMod {
                 return WaterEvaporateProcedure::execute;
             }
         }
+        //침수될 수 있으며, 현재 침수됨
+        if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)
+                && blockState.getValue(BlockStateProperties.WATERLOGGED) == true) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WaterTagDeleteProcedure::execute;
+            }
+        }
         //공기방울
         if (block instanceof BubbleColumnBlock) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
@@ -242,13 +261,6 @@ public class SapMod {
                 return SpongeDeleteProcedure::execute;
             }
         }
-        //이끼 낀 돌
-        if (builtInRegistryHolder.is(SapModTags.Blocks.MOSSY)) {
-            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
-                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-                return MossyDeleteProcedure::execute;
-            }
-        }
         //TNT
         if (builtInRegistryHolder.is(SapModTags.Blocks.TNT)) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
@@ -262,11 +274,6 @@ public class SapMod {
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
                 return FlowerPotFProcedure::execute;
             }
-        }
-        //침수될 수 있으며, 현재 침수됨
-        if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)
-                && blockState.getValue(BlockStateProperties.WATERLOGGED) == true) {
-            return WaterTagDeleteProcedure::execute;
         }
         //포탈관련
         if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
