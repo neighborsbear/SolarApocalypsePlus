@@ -1,10 +1,12 @@
 package com.ife.sap.procedures;
 
 import com.ife.sap.init.SapModBlocks;
+import com.ife.sap.init.SapModTags;
 import com.ife.sap.network.SapModVariables;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -60,6 +62,18 @@ public class WitheredLeavesBlockFProcedure {
 				&& (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == SapModBlocks.WITHERED_LEAVES.get()) {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+				}
 			}
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
@@ -68,6 +82,18 @@ public class WitheredLeavesBlockFProcedure {
 			if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 					&& y >= 63) {
 				world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+				}
+				if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+					world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+				}
 			}
 		}
 		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
@@ -79,6 +105,18 @@ public class WitheredLeavesBlockFProcedure {
 					world.setBlock(BlockPos.containing(x, y, z), SapModBlocks.WITHERED_LEAVES.get().defaultBlockState(), 3);
 				} else {
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
 				}
 			}
 		}
@@ -87,8 +125,56 @@ public class WitheredLeavesBlockFProcedure {
 					&& y >= 64) {
 				if (Mth.nextDouble(RandomSource.create(), 0, 2) <= 1){
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
 				} else {
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z + 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z - 1), SapModBlocks.DUST.get().defaultBlockState(), 3);
+					}
 				}
 			}
 		}
@@ -97,8 +183,110 @@ public class WitheredLeavesBlockFProcedure {
 				&& y >= 8) {
 				if (Mth.nextDouble(RandomSource.create(), 0, 2) <= 1){
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.FIRE.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.FIRE.defaultBlockState(), 3);
+					}
 			} else {
 					world.setBlock(BlockPos.containing(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+					}
+					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).is(BlockTags.LEAVES)) {
+						world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+					}
 				}
 		}
 	}

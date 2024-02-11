@@ -4,6 +4,7 @@ import com.ife.sap.network.SapModVariables;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
@@ -136,54 +137,380 @@ public class WaterEvaporateProcedure {
 			if ((world.getFluidState(BlockPos.containing(x + 1, y, z))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x, y, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
-			}
 			if ((world.getFluidState(BlockPos.containing(x + 1, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z - 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x1
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z - 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x2
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x3
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x4
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x5
 		} else if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
 				&& SapModVariables.MapVariables.get(world).SolarFlare == 5
 				&& y >= 8) {
@@ -191,55 +518,760 @@ public class WaterEvaporateProcedure {
 			if ((world.getFluidState(BlockPos.containing(x + 1, y, z))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x, y, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
-			}
-			if ((world.getFluidState(BlockPos.containing(x, y - 1, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
-			}
 			if ((world.getFluidState(BlockPos.containing(x + 1, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y, z - 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x1
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x + 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
-			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 1))).is(FluidTags.WATER)) {
-				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z + 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
 			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z - 1))).is(FluidTags.WATER)) {
 				world.setBlock(BlockPos.containing(x - 1, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x2
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x3
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x4
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x5
+			if ((world.getFluidState(BlockPos.containing(x, y + 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 1, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 1, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 1, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 1, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 1, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 1, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 1, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x6
+			if ((world.getFluidState(BlockPos.containing(x, y + 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 2, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 2, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 2, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 2, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 2, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 2, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 2, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 2, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 2, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x7
+			if ((world.getFluidState(BlockPos.containing(x, y + 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 3, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 3, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 3, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 3, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 3, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 3, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 3, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 3, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 3, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 3, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x8
+			if ((world.getFluidState(BlockPos.containing(x, y + 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 4, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 4, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 4, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 4, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 4, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 4, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y + 4, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y + 4, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y + 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y + 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y + 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y + 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y + 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y + 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y + 4, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y + 4, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x9
+			if ((world.getFluidState(BlockPos.containing(x, y - 5, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 5, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 5, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 5, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 5, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 5, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 5, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 5, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 5, z))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 5, z), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 5, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 5, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 5, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 5, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 5, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 5, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 5, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 5, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 5, z + 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 5, z + 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 5, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 5, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 5, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 5, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 5, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 5, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 5, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 5, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 5, z - 1))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 5, z - 1), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x, y - 5, z + 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x, y - 5, z + 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 1, y - 5, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 1, y - 5, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x + 2, y - 5, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x + 2, y - 5, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 1, y - 5, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 1, y - 5, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			if ((world.getFluidState(BlockPos.containing(x - 2, y - 5, z - 2))).is(FluidTags.WATER)) {
+				world.setBlock(BlockPos.containing(x - 2, y - 5, z - 2), Blocks.AIR.defaultBlockState(), 3);
+			}
+			//5x10
 		}
 	}
 }
-
