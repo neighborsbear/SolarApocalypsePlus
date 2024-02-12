@@ -61,13 +61,59 @@ public class EntityFireProcedure {
 				});
 			}
 		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare == 2
-				&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
-				&& !world.getLevelData().isRaining()) {
-			entity.setSecondsOnFire(10);
-			if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
-				SapMod.queueServerWork(20, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+		if (!(entity instanceof Projectile)) {
+			SapMod.queueServerWork(1, () -> {
+				if (SapModVariables.MapVariables.get(world).SolarFlare == 2
+						&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
+						&& !world.getLevelData().isRaining()) {
+					entity.setSecondsOnFire(10);
+					if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
+						SapMod.queueServerWork(20, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+							SapMod.queueServerWork(20, () -> {
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+								SapMod.queueServerWork(20, () -> {
+									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+									SapMod.queueServerWork(20, () -> {
+										entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+										SapMod.queueServerWork(20, () -> {
+											entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+										});
+									});
+								});
+							});
+						});
+					} else if (y >= 63) {
+						SapMod.queueServerWork(20, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+							SapMod.queueServerWork(20, () -> {
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+								SapMod.queueServerWork(20, () -> {
+									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+									SapMod.queueServerWork(20, () -> {
+										entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+										SapMod.queueServerWork(120, () -> {
+											entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+										});
+									});
+								});
+							});
+						});
+					}
+				}
+				if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
+						&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
+					entity.setSecondsOnFire(1);
+					SapMod.queueServerWork(5, () -> {
+						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
+						SapMod.queueServerWork(5, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+						});
+					});
+				}
+				if (SapModVariables.MapVariables.get(world).SolarFlare == 3
+						&& y >= 32) {
+					entity.setSecondsOnFire(5);
 					SapMod.queueServerWork(20, () -> {
 						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
 						SapMod.queueServerWork(20, () -> {
@@ -75,105 +121,63 @@ public class EntityFireProcedure {
 							SapMod.queueServerWork(20, () -> {
 								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
 								SapMod.queueServerWork(20, () -> {
-									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+									SapMod.queueServerWork(20, () -> {
+										entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+									});
 								});
 							});
 						});
 					});
-				});
-			} else if (y >= 63) {
-				SapMod.queueServerWork(20, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-					SapMod.queueServerWork(20, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-						SapMod.queueServerWork(20, () -> {
+					if (y >= 63) {
+						SapMod.queueServerWork(5, () -> {
 							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-							SapMod.queueServerWork(20, () -> {
-								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-								SapMod.queueServerWork(120, () -> {
-									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-								});
+							SapMod.queueServerWork(5, () -> {
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
 							});
 						});
-					});
-				});
-			}
-		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
-				&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
-			entity.setSecondsOnFire(1);
-			SapMod.queueServerWork(5, () -> {
-				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
-				SapMod.queueServerWork(5, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-				});
-			});
-		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare == 3
-				&& y >= 32) {
-			entity.setSecondsOnFire(5);
-			SapMod.queueServerWork(20, () -> {
-				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-				SapMod.queueServerWork(20, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+					}
+				}
+				if (SapModVariables.MapVariables.get(world).SolarFlare == 4
+						&& y >= 8) {
+					entity.setSecondsOnFire(5);
 					SapMod.queueServerWork(20, () -> {
 						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
 						SapMod.queueServerWork(20, () -> {
 							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-							SapMod.queueServerWork(20, () -> {
+							SapMod.queueServerWork(10, () -> {
 								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
 							});
 						});
 					});
-				});
-			});
-			if (y >= 63) {
-				SapMod.queueServerWork(5, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
+					if (y >= 32) {
+						SapMod.queueServerWork(5, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+							SapMod.queueServerWork(5, () -> {
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+							});
+						});
+					}
+				}
+				if (SapModVariables.MapVariables.get(world).SolarFlare == 5
+						&& y >= -16) {
+					entity.setSecondsOnFire(5);
 					SapMod.queueServerWork(5, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+						SapMod.queueServerWork(5, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+						});
 					});
-				});
-			}
-		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare == 4
-				&& y >= 8) {
-			entity.setSecondsOnFire(5);
-			SapMod.queueServerWork(20, () -> {
-				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-				SapMod.queueServerWork(20, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
-					SapMod.queueServerWork(10, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-					});
-				});
+					if (y >= 8) {
+						SapMod.queueServerWork(1, () -> {
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
+							SapMod.queueServerWork(1, () -> {
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
+							});
+						});
+					}
+				}
 			});
-			if (y >= 32) {
-				SapMod.queueServerWork(5, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
-					SapMod.queueServerWork(5, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-					});
-				});
-			}
-		}
-		if (SapModVariables.MapVariables.get(world).SolarFlare == 5
-				&& y >= -16) {
-			entity.setSecondsOnFire(5);
-			SapMod.queueServerWork(5, () -> {
-				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
-				SapMod.queueServerWork(5, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-				});
-			});
-			if (y >= 8) {
-				SapMod.queueServerWork(1, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
-					SapMod.queueServerWork(1, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (10));
-					});
-				});
-			}
 		}
 	}
 }
