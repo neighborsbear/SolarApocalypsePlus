@@ -66,8 +66,8 @@ public class EntityFireProcedure {
 				if (SapModVariables.MapVariables.get(world).SolarFlare == 2
 						&& !(SapModVariables.MapVariables.get(world).TodayTime > 12566 && SapModVariables.MapVariables.get(world).TodayTime < 23450)
 						&& !world.getLevelData().isRaining()) {
-					entity.setSecondsOnFire(10);
 					if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
+						entity.setSecondsOnFire(10);
 						SapMod.queueServerWork(20, () -> {
 							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
 							SapMod.queueServerWork(20, () -> {
@@ -84,6 +84,7 @@ public class EntityFireProcedure {
 							});
 						});
 					} else if (y >= 63) {
+						entity.setSecondsOnFire(10);
 						SapMod.queueServerWork(20, () -> {
 							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (1));
 							SapMod.queueServerWork(20, () -> {
@@ -103,7 +104,7 @@ public class EntityFireProcedure {
 				}
 				if (SapModVariables.MapVariables.get(world).SolarFlare >= 3 && SapModVariables.MapVariables.get(world).SolarFlare < 6
 						&& world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
-					entity.setSecondsOnFire(1);
+					entity.setSecondsOnFire(5);
 					SapMod.queueServerWork(5, () -> {
 						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.IN_FIRE)), (float) (0.5));
 						SapMod.queueServerWork(5, () -> {
