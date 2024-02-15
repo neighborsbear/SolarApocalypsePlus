@@ -28,7 +28,9 @@ public abstract class LevelRendererMixin {
     @Final
     @Mutable
     public static ResourceLocation SUN_LOCATION;
-//    private static final ResourceLocation SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step1.png");
+    public LevelAccessor world;
+
+    //    private static final ResourceLocation SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step1.png");
 //    @Final
 //    public LevelAccessor world;
 //    @Unique
@@ -50,17 +52,25 @@ public abstract class LevelRendererMixin {
 //        }
 //        return original.call(instance, matrix, x, y, z);
 //    }
-
-    //@Nullable
-    //public void renderSky(PoseStack p_202424_, Matrix4f p_254034_, float p_202426_, Camera p_202427_, boolean p_202428_, Runnable p_202429_) {
-    //}
-
-    //@Inject(method="renderSky", at = @At("HEAD"))
-    //private void onRendersky(PoseStack p_202424_, Matrix4f p_254034_, float p_202426_, Camera p_202427_, boolean p_202428_, Runnable p_202429_){
-        //뭔말인지 모르겠다
-    //}
     @Inject(method="renderSky", at = @At("HEAD"))
     private void onRendersky(PoseStack p_202424_, Matrix4f p_254034_, float p_202426_, Camera p_202427_, boolean p_202428_, Runnable p_202429_, CallbackInfo ci){
-        SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step6.png");
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 1){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step1.png");
+        }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 2){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step2.png");
+        }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 3){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step3.png");
+        }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 4){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step4.png");
+        }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 5){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step5.png");
+        }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 6){
+            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step6.png");
+        }
     }
 }
