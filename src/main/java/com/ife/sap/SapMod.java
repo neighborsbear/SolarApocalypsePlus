@@ -275,14 +275,6 @@ public class SapMod {
                 return FlowerPotFProcedure::execute;
             }
         }
-        //포탈관련
-        if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
-            return DeleteUnconditionallyProcedure::execute;
-        }
-        //엔드프레임
-        if (block instanceof EndPortalFrameBlock) {
-            return EndFrameTagDeleteProcedure::execute;
-        }
         //돌계열
         if (builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
             if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
@@ -359,6 +351,30 @@ public class SapMod {
                     && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
                 return ClayTCTerracottaProcedure::execute;
             }
+        }
+        //포탈관련
+        if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
+            return DeleteUnconditionallyProcedure::execute;
+        }
+        //엔드프레임
+        if (block instanceof EndPortalFrameBlock) {
+            return EndFrameTagDeleteProcedure::execute;
+        }
+        return null;
+    }
+    public static Procedure getNProcedure(BlockState blockState) {
+        FluidState fluidState = blockState.getFluidState();
+        Block block = blockState.getBlock();
+        Fluid fluid = fluidState.getType();
+        Reference<Block> builtInRegistryHolder = block.builtInRegistryHolder();
+        Reference<Fluid> fluidReference = fluid.builtInRegistryHolder();
+        //포탈관련
+        if (builtInRegistryHolder.is(BlockTags.PORTALS)) {
+            return DeleteUnconditionallyProcedure::execute;
+        }
+        //엔드프레임
+        if (block instanceof EndPortalFrameBlock) {
+            return EndFrameTagDeleteProcedure::execute;
         }
         return null;
     }

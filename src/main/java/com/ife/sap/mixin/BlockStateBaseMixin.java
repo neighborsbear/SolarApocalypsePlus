@@ -1,5 +1,6 @@
 package com.ife.sap.mixin;
 
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,12 +27,17 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
 
     @Shadow
     private boolean isRandomlyTicking;
+    private boolean isonPlace;
 
     @Unique
     private boolean sap$isOriginalRandomlyTicking;
+    @Unique
+    private boolean sap$isOriginalonPlace;
 
     @Unique
     protected Procedure sap$procedure;
+    @Unique
+    protected Procedure sap$Nprocedure;
 
     protected BlockStateBaseMixin(Block p_61117_, ImmutableMap<Property<?>, Comparable<?>> p_61118_, MapCodec<BlockState> p_61119_) {
         super(p_61117_, p_61118_, p_61119_);
@@ -40,7 +46,9 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
     @Inject(method = "initCache", at = @At("TAIL"))
     private void initCacheTail(CallbackInfo callbackInfo) {
         this.sap$procedure = SapMod.getProcedure(this.asState());
+        this.sap$Nprocedure = SapMod.getNProcedure(this.asState());
         this.isRandomlyTicking = this.isRandomlyTicking || this.sap$procedure != null;
+        this.isonPlace = this.isonPlace || this.sap$Nprocedure != null;
     }
 
     @Inject(method = "randomTick", at = @At("HEAD"), cancellable = true)
@@ -53,6 +61,19 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
         }
 
         if (!this.sap$isOriginalRandomlyTicking) {
+            callbackInfo.cancel();
+        }
+    }
+    @Inject(method = "onPlace", at = @At("TAIL"), cancellable = true)
+    private void onPlace(Level level, BlockPos pos, BlockState p_60699_, boolean p_60700_, CallbackInfo callbackInfo) {
+        if (this.sap$Nprocedure != null) {
+            int x = pos.getX();
+            int y = pos.getY();
+            int z = pos.getZ();
+            this.sap$Nprocedure.call(level, x, y, z);
+        }
+
+        if (!this.sap$isOriginalonPlace) {
             callbackInfo.cancel();
         }
     }

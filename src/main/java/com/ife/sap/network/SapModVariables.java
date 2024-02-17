@@ -89,6 +89,8 @@ public class SapModVariables {
 		public static final String DATA_NAME = "sap_mapvars";
 		public double SolarFlare = 0;
 		public double TodayTime = 0;
+		public double Today = 0;
+		public double LunarToday = 0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -99,12 +101,16 @@ public class SapModVariables {
 		public void read(CompoundTag nbt) {
 			SolarFlare = nbt.getDouble("SolarFlare");
 			TodayTime = nbt.getDouble("TodayTime");
+			Today = nbt.getDouble("Today");
+			LunarToday = nbt.getDouble("LunarToday");
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
 			nbt.putDouble("SolarFlare", SolarFlare);
 			nbt.putDouble("TodayTime", TodayTime);
+			nbt.putDouble("Today", Today);
+			nbt.putDouble("LunarToday", LunarToday);
 			return nbt;
 		}
 
