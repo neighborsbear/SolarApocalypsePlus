@@ -12,36 +12,28 @@ import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @OnlyIn(Dist.CLIENT)
 @Mixin(LevelRenderer.class)
 public abstract class LevelRendererMixin {
-    @Shadow
-    @Final
-    @Mutable
-    public static ResourceLocation SUN_LOCATION;
-    public LevelAccessor world;
+    @Unique
+    private Matrix4f originalCelestialMatrix;
 
-    @Inject(method="renderSky", at = @At("HEAD"))
-    private void onRendersky(PoseStack p_202424_, Matrix4f p_254034_, float p_202426_, Camera p_202427_, boolean p_202428_, Runnable p_202429_, CallbackInfo ci){
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 1){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step1.png");
-        }
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 2){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step2.png");
-        }
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 3){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step3.png");
-        }
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 4){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step4.png");
-        }
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 5){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step5.png");
-        }
-        if (SapModVariables.MapVariables.get(world).SolarFlare == 6){
-            SUN_LOCATION = new ResourceLocation("sap:textures/environment/sun_step6.png");
-        }
+    @ModifyVariable(method = "Lnet/minecraft/client/renderer/LevelRenderer;renderSky(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/math/Matrix4f;FLnet/minecraft/client/Camera;ZLjava/lang/Runnable;)V", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderTexture(ILnet/minecraft/resources/ResourceLocation;)V", ordinal = 0), ordinal = 1)
+    private Matrix4f celesteConfig$scaleSun(Matrix4f in) {
+        originalCelestialMatrix = new Matrix4f(in);
+        Matrix4f copy = new Matrix4f(in);
+        copy.scale(2.0F, 1.0F, 2.0F);
+        return copy;
+    }
+
+    @ModifyVariable(method = "Lnet/minecraft/client/renderer/LevelRenderer;renderSky(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/math/Matrix4f;FLnet/minecraft/client/Camera;ZLjava/lang/Runnable;)V", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderTexture(ILnet/minecraft/resources/ResourceLocation;)V", ordinal = 1), ordinal = 1)
+    private Matrix4f celesteConfig$scaleMoon(Matrix4f in) {
+        Matrix4f copy = new Matrix4f(originalCelestialMatrix);
+        copy.scale(10.0F, 1.0F, 10.0F);
+        originalCelestialMatrix = null;
+        return copy;
     }
 }
