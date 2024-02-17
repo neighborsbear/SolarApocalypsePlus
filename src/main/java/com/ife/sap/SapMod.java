@@ -376,6 +376,157 @@ public class SapMod {
         if (block instanceof EndPortalFrameBlock) {
             return EndFrameTagDeleteProcedure::execute;
         }
+        //사소한 오브
+        if (builtInRegistryHolder.is(SapModTags.Blocks.SIMPLE_DELETE)
+                || builtInRegistryHolder.is(BlockTags.REPLACEABLE_BY_TREES)
+                || builtInRegistryHolder.is(BlockTags.SWORD_EFFICIENT)
+                || builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_HOE)
+                || builtInRegistryHolder.is(BlockTags.FLOWERS)
+                || builtInRegistryHolder.is(BlockTags.BANNERS)
+                || builtInRegistryHolder.is(BlockTags.CANDLES)
+                || builtInRegistryHolder.is(BlockTags.CANDLE_CAKES)
+                || builtInRegistryHolder.is(BlockTags.BEDS)
+                || builtInRegistryHolder.is(BlockTags.SNOW)
+                || block instanceof BushBlock
+                || block instanceof WaterlilyBlock
+                || block instanceof CoralBlock
+                || block instanceof CoralPlantBlock
+                || block instanceof BaseCoralPlantBlock
+                || block instanceof BaseCoralFanBlock
+                || block instanceof BaseCoralWallFanBlock
+                || block instanceof CoralFanBlock
+                || block instanceof CoralWallFanBlock
+                || block instanceof CactusBlock
+                || block instanceof FrogspawnBlock
+                || block instanceof WebBlock
+                || block instanceof HoneyBlock
+                || block instanceof SlimeBlock) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
+                    && !builtInRegistryHolder.is(BlockTags.LEAVES)
+                    && !builtInRegistryHolder.is(FluidTags.WATER.location())
+                    && !(block instanceof SpongeBlock)
+                    && !(block instanceof WetSpongeBlock)
+                    && !(block instanceof SculkBlock)
+                    && !(block instanceof SculkSensorBlock)
+                    && !(block instanceof SculkVeinBlock)
+                    && !(block instanceof SculkCatalystBlock)
+                    && !(block instanceof SculkShriekerBlock)
+                    && !(block instanceof LeavesBlock)) {
+                return SimpleDeleteProcedure::execute;
+            }
+        }
+        //작은 식물
+        if (builtInRegistryHolder.is(BlockTags.SAPLINGS)
+                || block instanceof BambooSaplingBlock
+                || block instanceof BambooStalkBlock) {
+            if (!builtInRegistryHolder.is(BlockTags.LEAVES)
+                    && !builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return SmallPlantDeleteProcedure::execute;
+            }
+        }
+        //불타는계열
+        if (builtInRegistryHolder.is(BlockTags.LOGS)
+                || builtInRegistryHolder.is(BlockTags.PLANKS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_BUTTONS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_DOORS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_STAIRS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_SLABS)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_FENCES)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_PRESSURE_PLATES)
+                || builtInRegistryHolder.is(BlockTags.WOODEN_TRAPDOORS)
+                || builtInRegistryHolder.is(BlockTags.BAMBOO_BLOCKS)
+                || builtInRegistryHolder.is(BlockTags.MINEABLE_WITH_AXE)
+                || builtInRegistryHolder.is(BlockTags.WOOL)
+                || builtInRegistryHolder.is(BlockTags.WOOL_CARPETS)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)
+                    && !builtInRegistryHolder.is(BlockTags.LEAVES)) {
+                return WoodBlockFProcedure::execute;
+            }
+        }
+        //나뭇잎
+        if (builtInRegistryHolder.is(BlockTags.LEAVES)
+                || block instanceof LeavesBlock
+                || block instanceof CherryLeavesBlock
+                || block instanceof MangroveLeavesBlock) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WitheredLeavesBlockFProcedure::execute;
+            }
+        }
+        //이끼 낀 돌
+        if (builtInRegistryHolder.is(SapModTags.Blocks.MOSSY)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return MossyDeleteProcedure::execute;
+            }
+        }
+        //잔디
+        if (builtInRegistryHolder.is(SapModTags.Blocks.MOIST_DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return GrassBlockTCDirtProcedure::execute;
+            }
+        }
+        //흙
+        if (builtInRegistryHolder.is(SapModTags.Blocks.DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return DirtTCCoarseDirtProcedure::execute;
+            }
+        }
+        //거친흙
+        if (builtInRegistryHolder.is(SapModTags.Blocks.HARD_DIRT)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return CoarseDirtTCCrushedDirtBlockProcedure::execute;
+            }
+        }
+        //모래
+        if (builtInRegistryHolder.is(BlockTags.SAND)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return SandTCDustProcedure::execute;
+            }
+        }
+        //가루
+        if (builtInRegistryHolder.is(SapModTags.Blocks.POWDER)) {
+            if (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return DustLostProcedure::execute;
+            }
+        }
+        //얼음
+        if (builtInRegistryHolder.is(BlockTags.ICE)) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return IceMeltProcedure::execute;
+            }
+        }
+        //물
+        if (builtInRegistryHolder.is(FluidTags.WATER.location())) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WaterEvaporateProcedure::execute;
+            }
+        }
+        //침수될 수 있으며, 현재 침수됨
+        if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)
+                && blockState.getValue(BlockStateProperties.WATERLOGGED) == true) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return WaterTagDeleteProcedure::execute;
+            }
+        }
+        //공기방울
+        if (block instanceof BubbleColumnBlock) {
+            if  (!builtInRegistryHolder.is(SapModTags.Blocks.FIRE_RESISTANCE)
+                    && !builtInRegistryHolder.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                return BubbleEvaporateProcedure::execute;
+            }
+        }
         return null;
     }
 
