@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 public class DeleteUnconditionallyProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if (world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld")))
-				&& SapModVariables.MapVariables.get(world).SolarFlare != 6) {
+				&& SapModVariables.MapVariables.get(world).SolarFlare < 6) {
 			world.setBlock(BlockPos.containing(x , y , z ), Blocks.AIR.defaultBlockState(), 3);
 		}
 	}
