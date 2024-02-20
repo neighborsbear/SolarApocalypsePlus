@@ -17,6 +17,19 @@ public class SapModTabs {
 
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
+		if (tabData.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+			tabData.accept(SapModBlocks.HIGH_DENSITY_METAL.get().asItem());
+			tabData.accept(SapModBlocks.REDSTONE_COATED_METAL.get().asItem());
+			tabData.accept(SapModBlocks.HEAT_RESISTANT_HIGH_STRENGTH_METAL.get().asItem());
+		}
+
+		if (tabData.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+			tabData.accept(SapModBlocks.MEASURING_INSTRUMENT.get().asItem());
+		}
+
+		if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+			tabData.accept(SapModItems.COORDINATES_OF_THE_SUN.get());
+		}
 
 		if (tabData.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
 			tabData.accept(SapModBlocks.CRUSHED_DIRT.get().asItem());

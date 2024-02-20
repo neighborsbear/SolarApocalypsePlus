@@ -51,12 +51,6 @@ public class SapMod {
         MinecraftForge.EVENT_BUS.register(this);
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        VanillaBlocks.REGISTRY.register(bus);
-
-        VanillaItems.REGISTRY.register(bus);
-
-        VanillaFluids.FLUIDS.register(bus);
-
         SapModBlocks.REGISTRY.register(bus);
 
         SapModItems.REGISTRY.register(bus);

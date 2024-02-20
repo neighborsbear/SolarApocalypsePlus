@@ -36,6 +36,8 @@
                 "minecraft:sticky_piston",
                 "minecraft:piston_head",
                 "minecraft:smoker",
-                "minecraft:coal_block"
+                "minecraft:coal_block",
+                "ad_astra:oil",
+                "ad_astra:flowing_oil"
         ]
 }

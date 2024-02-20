@@ -176,7 +176,7 @@ public class SapHotProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) && world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld"))) && !entity.isInWaterRainOrBubble()) {
-			if (y >= 63) {
+			if (y >= 63 || world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
 				entity.setSecondsOnFire(2);
 				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE)), (float) (world.dayTime() / 48000));
 			}
@@ -211,7 +211,7 @@ public class SapHotProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) && world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld"))) && !entity.isInWaterRainOrBubble()) {
-			if (y >= 32) {
+			if (y >= 32 || world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
 				entity.setSecondsOnFire(3);
 				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE)), (float) (world.dayTime() / 48000));
 			}
@@ -246,7 +246,7 @@ public class SapHotProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) && world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, new ResourceLocation("minecraft:is_overworld"))) && !entity.isInWaterRainOrBubble()) {
-			if (y >= 8) {
+			if (y >= 8 || world.canSeeSkyFromBelowWater(BlockPos.containing(x, y + 1, z))) {
 				entity.setSecondsOnFire(4);
 				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE)), (float) (world.dayTime() / 48000));
 			}
