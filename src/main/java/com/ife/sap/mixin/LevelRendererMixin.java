@@ -145,6 +145,9 @@ public abstract class LevelRendererMixin {
         if (SapModVariables.MapVariables.get(world).LunarToday == 28 && SapModVariables.MapVariables.get(world).SolarFlare != 6){
             copy.scale(13.0F, 1.0F, 13.0F);
         }
+        if (SapModVariables.MapVariables.get(world).SolarFlare == 5) {
+            copy.scale(13.0F, 1.0F, 13.0F);
+        }
         if (SapModVariables.MapVariables.get(world).SolarFlare == 6){
             copy.scale(1.0F, 1.0F, 1.0F);
         }

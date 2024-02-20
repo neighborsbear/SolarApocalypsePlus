@@ -1,5 +1,6 @@
 {
-	"parent": "block/block",
+	"parent": "block/glass",
+	"render_type": "cutout_mipped",
 	"textures": {
 		"2": "block/obsidian",
 		"5": "sap:block/redstone_coated_metal",

@@ -1,9 +1,9 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "#G#",
-        "###"
+        "#C#",
+        "CGC",
+        "#C#"
     ],
     "key": {
         "#": {
@@ -11,6 +11,9 @@
         },
         "G": {
             "item": "minecraft:gold_block"
+        },
+        "C": {
+            "item": "minecraft:copper_block"
         }
     },
     "result": {
